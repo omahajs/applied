@@ -2,7 +2,7 @@ define(function(require) {
     'use strict';
 
     var _      = require('underscore');
-    var geolib = require('geo');
+    var geolib = require('index').geo;
 
     var EMPTY_VALUE = 0;
     var directions = [

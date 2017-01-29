@@ -40,4 +40,4 @@ npm test
 - `npm run test:watch` > watch task for running tests
 - `npm run lint` > lint code
 - `npm run lint:watch` > watch task for code linting
-- `npm run deploy` > bundle code using browserify
+- `npm run build` > bundle code using browserify
