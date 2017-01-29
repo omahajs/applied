@@ -1,0 +1,70 @@
+{
+  "name": "applied-js",
+  "version": "0.0.1",
+  "author": "Jason Wohlgemuth",
+  "license": "MIT",
+  "description": "Applied mathematics algorithms implemented in JavaScript",
+  "main": "lib/index.js",
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/omahajs/applied.git"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "requirejs": "^2.2.0",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "config": "^1.14.0",
+    "eslint-config-omaha-prime-grade": "^1.0.0",
+    "eslint-plugin-backbone": "^2.0.1",
+    "fs-promise": "^1.0.0",
+    "globby": "^6.0.0",
+    "grunt": "^1.0.0",
+    "grunt-benchmark": "^1.0.0",
+    "grunt-cli": "^1.0.0",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-eslint": "^19.0.0",
+    "grunt-express": "^1.4.1",
+    "grunt-jsdoc": "*",
+    "grunt-jsinspect": "^2.0.0",
+    "grunt-jsonlint": "^1.0.4",
+    "grunt-karma": "^2.0.0",
+    "grunt-karma-coveralls": "^2.5.4",
+    "grunt-open": "^0.2.3",
+    "grunt-parallel": "^0.5.0",
+    "grunt-plato": "^1.3.0",
+    "jasmine-core": "^2.2.0",
+    "jsinspect": "^0.8.0",
+    "json-server": "*",
+    "karma": "^1.0.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-coverage": "^1.0.0",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-jasmine": "^1.0.0",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-requirejs": "^1.0.0",
+    "karma-spec-reporter": "*",
+    "load-grunt-tasks": "^3.1.0",
+    "lodash": "*",
+    "phantomjs-prebuilt": "^2.1.3",
+    "sinon": "^1.15.4",
+    "time-grunt": "^1.1.0"
+  },
+  "scripts": {
+    "test": "grunt karma:coverage",
+    "test:ci": "npm test && grunt coveralls",
+    "preversion": "npm test",
+    "postversion": "git push && git push --tags",
+    "rest-api": "json-server --port 8080 --watch test/data/db.json",
+    "deploy": "cp -a dist/. dist/.",
+    "inspect": "grunt jsinspect:app"
+  }
+}
