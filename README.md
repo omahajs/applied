@@ -1,5 +1,7 @@
 Applied JS
 ==========
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/omahajs/applied.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/omahajs/applied.svg?branch=master)](https://travis-ci.org/omahajs/applied)
 [![Coverage Status](https://coveralls.io/repos/github/omahajs/applied/badge.svg?branch=master)](https://coveralls.io/github/omahajs/applied?branch=master)
 [![NSP Status](https://nodesecurity.io/orgs/omaha-js/projects/dcda8c14-52c5-442a-a6d6-2a3396c0c5d5/badge)](https://nodesecurity.io/orgs/omaha-js/projects/dcda8c14-52c5-442a-a6d6-2a3396c0c5d5)
