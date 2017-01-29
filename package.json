@@ -4,7 +4,7 @@
   "author": "Jason Wohlgemuth",
   "license": "MIT",
   "description": "Applied mathematics algorithms implemented in JavaScript",
-  "main": "lib/index.js",
+  "main": "applied.js",
   "keywords": [],
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
     "underscore": "^1.8.3"
   },
   "devDependencies": {
+    "browserify": "^14.0.0",
     "config": "^1.14.0",
     "eslint-config-omaha-prime-grade": "^2.0.1",
     "eslint-plugin-backbone": "^2.0.1",
@@ -59,12 +60,15 @@
     "time-grunt": "^1.1.0"
   },
   "scripts": {
-    "test": "grunt karma:coverage",
+    "lint": "grunt eslint:app",
+    "lint:watch": "grunt eslint:ing",
+    "test": "npm run lint && grunt karma:coverage",
+    "test:watch": "grunt karma:covering",
     "test:ci": "npm test && grunt coveralls",
     "preversion": "npm test",
     "postversion": "git push && git push --tags",
     "rest-api": "json-server --port 8080 --watch test/data/db.json",
-    "deploy": "cp -a dist/. dist/.",
+    "deploy": "browserify ./lib/**.js > ./applied.js",
     "inspect": "grunt jsinspect:app"
   }
 }

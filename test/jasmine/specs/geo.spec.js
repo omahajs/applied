@@ -38,7 +38,7 @@ define(function(require) {
         [116, 46, 34, 'w']     //degees/minutes/seconds
     ];
 
-    describe('Geospatial Values', function() {
+    describe('geolib', function() {
         var value;
         var geo;
         var expectedValue;
@@ -46,7 +46,6 @@ define(function(require) {
         var degreesMinutesSeconds = geolib.convert.toDegreesMinutesSeconds;
         var degreesDecimalMinutes = geolib.convert.toDegreesDecimalMinutes;
         var decimalDegrees = geolib.convert.toDecimalDegrees;
-        var isDirection = geolib.isDirection;
         function expectValidLatitude(value) {
             expect(value.isEmpty()).toBeFalsy();
             expect(value.hasDirection()).toBeTruthy();
