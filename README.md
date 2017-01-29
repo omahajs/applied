@@ -41,3 +41,4 @@ npm test
 - `npm run lint` > lint code
 - `npm run lint:watch` > watch task for code linting
 - `npm run build` > bundle code using browserify
+- `npm run docs` > generate and view the documentation

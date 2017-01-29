@@ -67,6 +67,7 @@
     "test": "npm run lint && grunt karma:coverage",
     "test:watch": "grunt karma:covering",
     "test:ci": "npm test && grunt coveralls",
+    "docs": "grunt jsdoc && grunt open:docs",
     "preversion": "npm test",
     "postversion": "git push && git push --tags",
     "rest-api": "json-server --port 8080 --watch test/data/db.json",
