@@ -74,6 +74,7 @@
     "rest-api": "json-server --port 8080 --watch test/data/db.json",
     "build": "browserify -t deamdify -g uglifyify ./lib/index.js > ./applied.js",
     "prepublish": "npm run build",
-    "inspect": "grunt jsinspect:app"
+    "inspect": "grunt jsinspect:app",
+    "deploy": "git subtree push --prefix reports/docs origin gh-pages"
   }
 }
