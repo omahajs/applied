@@ -1,4 +1,4 @@
-<div style="text-align:center;width:100%;">
+<div style="text-align:left;width:100%;">
     <img height="200px" alt="applied.js" src="https://dl.dropboxusercontent.com/s/fxhrif7vjdn9iii/applied-js.png?dl=0"/>
 </div>
 </br>
