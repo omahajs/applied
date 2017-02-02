@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "author": "Jason Wohlgemuth",
   "license": "MIT",
-  "description": "Applied mathematics algorithms implemented in JavaScript",
+  "description": "Applied mathematics toolkit implemented in JavaScript",
   "main": "applied.js",
   "keywords": [],
   "repository": {

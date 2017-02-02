@@ -2,7 +2,7 @@ define(function(require) {
     'use strict';
 
     var _      = require('underscore');
-    var geolib = require('index').geo;
+    var geolib = require('index').geodetic;
 
     var EMPTY_VALUE = 0;
     var directions = [
@@ -46,6 +46,8 @@ define(function(require) {
         var degreesMinutesSeconds = geolib.convert.toDegreesMinutesSeconds;
         var degreesDecimalMinutes = geolib.convert.toDegreesDecimalMinutes;
         var decimalDegrees = geolib.convert.toDecimalDegrees;
+        var toCartesian = geolib.convert.toCartesian;
+        var toGeodetic = geolib.convert.toGeodetic;
         function expectValidLatitude(value) {
             expect(value.isEmpty()).toBeFalsy();
             expect(value.hasDirection()).toBeTruthy();
@@ -128,6 +130,71 @@ define(function(require) {
             ];
             convertAndCompare(decimalDegrees, expectedValue, testValues);
             expect(decimalDegrees('invalid')).toBeNull();
+            expect(decimalDegrees({})).toBeNull();
+        });
+        it('can convert to and from Cartesian', function() {
+            var latitude = 41.25;
+            var longitude = 96.0000;
+            var height;
+            //Cartesian for omaha lat/lon where the key is the height (in meters)
+            var cartesiansFromCesium = {
+                '0': {
+                    x: -501980.225469305,
+                    y: 4776022.813927791,
+                    z: 4183337.213396747
+                },
+                '1000': {
+                    x: -502058.8141290044,
+                    y: 4776770.535078138,
+                    z: 4183996.5592118474
+                },
+                '10000': {
+                    x: -502766.1120662974,
+                    y: 4783500.025431264,
+                    z: 4189930.6715477477
+                },
+                '100000': {
+                    x: -509839.09143922775,
+                    y: 4776770.535078138,
+                    z: 4183996.5592118474
+                }
+            }
+            function testGeodeticAccuracy(cartesian, height, precision) {
+                precision = precision ? precision : 4;
+                var value = toGeodetic(
+                    cartesian.x,
+                    cartesian.y,
+                    cartesian.z
+                );
+                if (height < 100000) {
+                  expect(value[0]).toBeCloseTo(latitude,  precision);
+                  expect(value[1]).toBeCloseTo(longitude, precision);
+                  expect(value[2]).toBeCloseTo(height,    precision);
+                } else {
+                  expect(value[0]).not.toBeCloseTo(latitude,  precision);
+                  expect(value[1]).not.toBeCloseTo(longitude, precision);
+                  expect(value[2]).not.toBeCloseTo(height,    precision);
+                }
+            }
+            function testCartesianAccuracy(latitude, longitude, height, precision) {
+                precision = precision ? precision : 4;
+                var value = toCartesian(latitude, longitude, height);
+                var cartesian = cartesiansFromCesium[height];
+                expect(value[0]).toBeCloseTo(cartesian.x, precision);
+                expect(value[1]).toBeCloseTo(cartesian.y, precision);
+                expect(value[2]).toBeCloseTo(cartesian.z, precision);
+            }
+            height = 0;
+            testGeodeticAccuracy(cartesiansFromCesium[height], height);
+            testCartesianAccuracy(latitude, longitude, height);
+            height = 1000;
+            testGeodeticAccuracy(cartesiansFromCesium[height], height);
+            testCartesianAccuracy(latitude, longitude, height);
+            height = 10000;
+            testGeodeticAccuracy(cartesiansFromCesium[height], height);
+            testCartesianAccuracy(latitude, longitude, height);
+            height = 100000;
+            testGeodeticAccuracy(cartesiansFromCesium[height], height);
         });
     });
 });

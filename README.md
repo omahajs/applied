@@ -10,7 +10,7 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/omahajs/applied/badge.svg)](https://snyk.io/test/github/omahajs/applied)
 
 
-> **Applied** mathematics algorithms implemented in **JS** (ECMAScript)
+> **Applied** mathematics toolkit implemented in **JS** (ECMAScript)
 
 Usage
 -----
