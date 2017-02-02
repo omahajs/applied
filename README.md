@@ -1,5 +1,5 @@
 <div style="text-align:center;width:100%;">
-    <img style="height: 200px;" alt="applied.js" src="https://dl.dropboxusercontent.com/s/fxhrif7vjdn9iii/applied-js.png?dl=0"/>
+    <img height="200px" alt="applied.js" src="https://dl.dropboxusercontent.com/s/fxhrif7vjdn9iii/applied-js.png?dl=0"/>
 </div>
 
 ---------
