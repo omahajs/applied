@@ -1,8 +1,7 @@
 <div style="text-align:center;width:100%;">
     <img height="200px" alt="applied.js" src="https://dl.dropboxusercontent.com/s/fxhrif7vjdn9iii/applied-js.png?dl=0"/>
 </div>
-
----------
+</br>
 
 [![Build Status](https://travis-ci.org/omahajs/applied.svg?branch=master)](https://travis-ci.org/omahajs/applied)
 [![Coverage Status](https://coveralls.io/repos/github/omahajs/applied/badge.svg?branch=master)](https://coveralls.io/github/omahajs/applied?branch=master)
