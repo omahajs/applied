@@ -71,28 +71,20 @@ module.exports = function (grunt) {
             }
         },
         /**
-         * Lint compiled CSS output file
-         * @see {@link https://github.com/gruntjs/grunt-contrib-csslint}
-        **/
-        csslint: {
-            options: { csslintrc: '<%= files.config.csslint %>' },
-            src: ['<%= folders.app %>/style.css']
-        },
-        /**
          * Validate files with ESLint
          * @see {@link https://www.npmjs.com/package/grunt-eslint}
         **/
         eslint: {
-            options: { configFile: '<%= files.config.eslint %>' },
+            options: {configFile: '<%= files.config.eslint %>'},
             ing: {
-                options: { fix: true },
+                options: {fix: true},
                 src: [
                     '<%= folders.app %>/<%= files.scripts %>',
                     '!<%= folders.app %>/templates.js'
                 ]
             },
             app: {
-                options: { fix: false },
+                options: {fix: false},
                 src: [
                     '<%= folders.app %>/<%= files.scripts %>',
                     '!<%= folders.app %>/templates.js'
