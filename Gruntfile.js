@@ -64,6 +64,10 @@ module.exports = function (grunt) {
                         dest: '<%= folders.dist %>',
                         filter: 'isFile'
                     }]
+            },
+            cname: {
+                src: 'CNAME',
+                dest: 'reports/docs/'
             }
         },
         /**
