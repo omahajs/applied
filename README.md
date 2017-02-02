@@ -17,8 +17,8 @@ Usage
 
 > Coming soon...
 
-Contributing
-------------
+Development
+-----------
 
 > **Note:**  Linux is the only actively supported OS for development
 
