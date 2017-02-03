@@ -43,9 +43,9 @@ define(function(require) {
         var geo;
         var expectedValue;
         var testValues;
-        var degreesMinutesSeconds = geolib.convert.toDegreesMinutesSeconds;
-        var degreesDecimalMinutes = geolib.convert.toDegreesDecimalMinutes;
-        var decimalDegrees = geolib.convert.toDecimalDegrees;
+        var toDMS = geolib.convert.toDegreesMinutesSeconds;
+        var toDDM = geolib.convert.toDegreesDecimalMinutes;
+        var toDecDeg = geolib.convert.toDecimalDegrees;
         var toCartesian = geolib.convert.toCartesian;
         var toGeodetic = geolib.convert.toGeodetic;
         function expectValidLatitude(value) {
@@ -77,19 +77,19 @@ define(function(require) {
                 [32.8303, 0, 0],
                 [32, 49, 49.0800]
             ];
-            convertAndCompare(degreesDecimalMinutes, expectedValue, testValues);
+            convertAndCompare(toDDM, expectedValue, testValues);
             expectedValue = [-32, 49.818, 0];
             testValues = [
                 [-32.8303, 0, 0],
                 [-32, 49, 49.0800]
             ];
-            convertAndCompare(degreesDecimalMinutes, expectedValue, testValues);
-            expect(degreesDecimalMinutes([-0, 0, 49.0800])).toEqual([-0, 0.818, 0]);
-            expect(degreesDecimalMinutes([0, 0, 49.0800])).toEqual([0, 0.818, 0]);
-            expect(degreesDecimalMinutes([-0, 42, 0])).toEqual([-0, 42, 0]);
-            expect(degreesDecimalMinutes([0, 42, 0])).toEqual([0, 42, 0]);
-            expect(degreesDecimalMinutes('invalid')).toBeNull();
-            expect(degreesDecimalMinutes([1, 2])).toBeNull();
+            convertAndCompare(toDDM, expectedValue, testValues);
+            expect(toDDM([-0, 0, 49.0800])).toEqual([-0, 0.818, 0]);
+            expect(toDDM([0, 0, 49.0800])).toEqual([0, 0.818, 0]);
+            expect(toDDM([-0, 42, 0])).toEqual([-0, 42, 0]);
+            expect(toDDM([0, 42, 0])).toEqual([0, 42, 0]);
+            expect(toDDM('invalid')).toBeNull();
+            expect(toDDM([1, 2])).toBeNull();
         });
         it('can convert to degrees / minutes / seconds', function() {
             expectedValue = [32, 49, 49.0800];
@@ -98,19 +98,19 @@ define(function(require) {
                 [32, 49.818, 0],
                 [32, 49, 49.0800]
             ];
-            convertAndCompare(degreesMinutesSeconds, expectedValue, testValues);
+            convertAndCompare(toDMS, expectedValue, testValues);
             expectedValue = [-32, 49, 49.0800];
             testValues = [
                 [-32.8303, 0, 0],
                 [-32, 49.818, 0],
                 [-32, 49, 49.0800]
             ];
-            convertAndCompare(degreesMinutesSeconds, expectedValue, testValues);
-            expect(degreesMinutesSeconds([0, 49, 0])).toEqual([0, 49, 0]);
-            expect(degreesMinutesSeconds([0, 0, 49.0800])).toEqual([0, 0, 49.0800]);
-            expect(degreesMinutesSeconds([32, 0, 49.0800])).toEqual([32, 0, 49.0800]);
-            expect(degreesMinutesSeconds('invalid')).toBeNull();
-            expect(degreesMinutesSeconds([1, 2])).toBeNull();
+            convertAndCompare(toDMS, expectedValue, testValues);
+            expect(toDMS([0, 49, 0])).toEqual([0, 49, 0]);
+            expect(toDMS([0, 0, 49.0800])).toEqual([0, 0, 49.0800]);
+            expect(toDMS([32, 0, 49.0800])).toEqual([32, 0, 49.0800]);
+            expect(toDMS('invalid')).toBeNull();
+            expect(toDMS([1, 2])).toBeNull();
         });
         it('can convert to decimal-degrees', function() {
             expectedValue = 32.8303;
@@ -120,7 +120,7 @@ define(function(require) {
                 [32, 49, 49.0800, 'w'],
                 [32, 49, 49.0800]
             ];
-            convertAndCompare(decimalDegrees, expectedValue, testValues);
+            convertAndCompare(toDecDeg, expectedValue, testValues);
             expectedValue = -32.8303;
             testValues = [
                 '-32 49 49.0800 E',
@@ -128,9 +128,9 @@ define(function(require) {
                 [-32, 49, 49.0800, 's'],
                 [-32, 49, 49.0800]
             ];
-            convertAndCompare(decimalDegrees, expectedValue, testValues);
-            expect(decimalDegrees('invalid')).toBeNull();
-            expect(decimalDegrees({})).toBeNull();
+            convertAndCompare(toDecDeg, expectedValue, testValues);
+            expect(toDecDeg('invalid')).toBeNull();
+            expect(toDecDeg({})).toBeNull();
         });
         it('can convert to and from Cartesian', function() {
             var latitude = 41.25;
