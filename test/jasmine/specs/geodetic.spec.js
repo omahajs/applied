@@ -38,7 +38,7 @@ define(function(require) {
         [116, 46, 34, 'w']     //degees/minutes/seconds
     ];
 
-    describe('geolib', function() {
+    describe('Geodetic module', function() {
         var value;
         var geo;
         var expectedValue;
