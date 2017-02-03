@@ -23,10 +23,9 @@ Roadmap
 - Geodetic
   - [x] geodetic <<>> cartesian
   - [x] "decimal degrees" <<>> "degrees decimal minutes" <<>> "degrees minutes seconds"
-  - [ ] ???
+  - [ ] Haversine formula
 - Atmosphere
   - [ ] FPS <<>> mach
-  - [ ] ???
 
 Development
 -----------
