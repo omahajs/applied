@@ -5,6 +5,7 @@ define(function(require) {
     var geolib = require('index').geodetic;
 
     var EMPTY_VALUE = 0;
+    var SANDIEGO_TO_OMAHA_KM = 2098;
     var directions = [
         'North', 'South', 'East', 'West',
         'north', 'south', 'east', 'west',
@@ -18,24 +19,34 @@ define(function(require) {
         'b', 'a', 'd'
     ];
     var omahaLat = [
-        41.2500,            //decimal
-        [41, 15.0000, 'N'], //hybrid
-        [41, 15, 0, 'N']    //degees/minutes/seconds
+        41.2500,           //decimal
+        [41, 15.0000, 'N'],//hybrid
+        [41, 15, 0, 'N']   //degees/minutes/seconds
     ];
     var omahaLon = [
-        96.0000,           //decimal
-        [96, 0.0000, 'W'], //hybrid
-        [96, 0, 0, 'W']    //degees/minutes/seconds
+        96.0000,          //decimal
+        [96, 0.0000, 'W'],//hybrid
+        [96, 0, 0, 'W']   //degees/minutes/seconds
+    ];
+    var sanDiegoLat = [
+        32.7157,                 //decimal
+        [32.7157, 42.942, 'N'],  //hybrid
+        [32.7157, 42, 56.52, 'N']//degees/minutes/seconds
+    ];
+    var sanDiegoLon = [
+        117.1611,                //decimal
+        [117.1611, 9.666, 'W'],  //hybrid
+        [117.1611, 9, 39.96, 'W']//degees/minutes/seconds
     ];
     var lat = [
-        32.8303,               //decimal
-        [32, 49.818, 'North'], //hybrid
-        [32, 49, 49, 'n']      //degees/minutes/seconds
+        32.8303,              //decimal
+        [32, 49.818, 'North'],//hybrid
+        [32, 49, 49, 'n']     //degees/minutes/seconds
     ];
     var lon = [
-        116.7762,              //decimal
-        [116, 46.572, 'West'], //hybrid
-        [116, 46, 34, 'w']     //degees/minutes/seconds
+        116.7762,             //decimal
+        [116, 46.572, 'West'],//hybrid
+        [116, 46, 34, 'w']    //degees/minutes/seconds
     ];
 
     describe('Geodetic module', function() {
@@ -63,13 +74,13 @@ define(function(require) {
                 expect(fn(val)).toEqual(expectedValue);
             });
         }
-        it('has appropriate data stored in DATUM and GEOSPATIAL_FORMATS objects', function() {
+        it('has appropriate data stored in DATUM and FORMATS objects', function() {
             expect(_.keys(geolib.DATUM).length).toEqual(_.values(geolib.DATUM).filter(_.isNumber).length);
-            expect(_.keys(geolib.GEOSPATIAL_FORMATS).length).toEqual(_.values(geolib.GEOSPATIAL_FORMATS).filter(_.isString).length);
+            expect(_.keys(geolib.FORMATS).length).toEqual(_.values(geolib.FORMATS).filter(_.isString).length);
         });
-        it('can not change DATUM or GEOSPATIAL_FORMATS data', function() {
+        it('can not change DATUM or FORMATS data', function() {
             expect(Object.isFrozen(geolib.DATUM)).toBeTruthy();
-            expect(Object.isFrozen(geolib.GEOSPATIAL_FORMATS)).toBeTruthy();
+            expect(Object.isFrozen(geolib.FORMATS)).toBeTruthy();
         });
         it('can convert to degrees / decimal-minutes', function() {
             expectedValue = [32, 49.818, 0];
