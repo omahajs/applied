@@ -21,11 +21,11 @@ Roadmap
 -------
 
 - Geodetic
-  - [x] geodetic <<>> cartesian
-  - [x] "decimal degrees" <<>> "degrees decimal minutes" <<>> "degrees minutes seconds"
-  - [ ] Haversine formula
+  - [x] cartersian <<>> cartographic unit conversions
+  - [x] Spheroid radius calculation
+  - [ ] Haversine diatnce calculations
 - Atmosphere
-  - [ ] FPS <<>> mach
+  - [ ] mach <<>> feet-per-sec conversions
 
 Development
 -----------
