@@ -57,8 +57,8 @@ define(function(require) {
         var toDMS = geolib.convert.toDegreesMinutesSeconds;
         var toDDM = geolib.convert.toDegreesDecimalMinutes;
         var toDecDeg = geolib.convert.toDecimalDegrees;
-        var toCartesian = geolib.convert.toCartesian;
-        var toGeodetic = geolib.convert.toGeodetic;
+        var toCartesian = geolib.convert.geodeticToCartesian;
+        var toGeodetic = geolib.convert.cartesianToGeodetic;
         function expectValidLatitude(value) {
             expect(value.isEmpty()).toBeFalsy();
             expect(value.hasDirection()).toBeTruthy();
