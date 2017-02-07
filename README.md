@@ -22,8 +22,8 @@ Roadmap
 
 - Geodetic
   - [x] cartersian <<>> cartographic unit conversions
-  - [x] Spheroid radius calculation
-  - [ ] Haversine diatnce calculations
+  - [x] Spheroid (WGS84) radius calculation
+  - [ ] Spherical distance calculations
 - Atmosphere
   - [ ] mach <<>> feet-per-sec conversions
 
