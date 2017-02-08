@@ -154,7 +154,7 @@
 
     
 
-    <h4 class="name" id=".convertCartesianToGeodetic"><span class="type-signature">(static) </span>convertCartesianToGeodetic<span class="signature">()</span><span class="type-signature"> &rarr; {array}</span></h4>
+    <h4 class="name" id=".convertCartesianToGeodetic"><span class="type-signature">(static) </span>convertCartesianToGeodetic<span class="signature">()</span><span class="type-signature"> &rarr; {Array.&lt;number>}</span></h4>
 
     
 
@@ -208,7 +208,7 @@
             <td class="type">
             
                 
-<span class="param-type">array</span>
+<span class="param-type">Array.&lt;number></span>
 
 
             
@@ -257,7 +257,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="geodetic.js.html">geodetic.js</a>, <a href="geodetic.js.html#line152">line 152</a>
+        <a href="geodetic.js.html">geodetic.js</a>, <a href="geodetic.js.html#line155">line 155</a>
     </li></ul></dd>
     
 
@@ -291,7 +291,7 @@
 
         
 <div class="param-desc">
-    [latitude, longitude, height]
+    [latitude, longitude, height] (in degrees)
 </div>
 
 
@@ -302,7 +302,7 @@
     </dt>
     <dd>
         
-<span class="param-type">array</span>
+<span class="param-type">Array.&lt;number></span>
 
 
     </dd>
@@ -317,7 +317,7 @@
 
     
 
-    <h4 class="name" id=".convertGeodeticToCartesian"><span class="type-signature">(static) </span>convertGeodeticToCartesian<span class="signature">()</span><span class="type-signature"> &rarr; {array}</span></h4>
+    <h4 class="name" id=".convertGeodeticToCartesian"><span class="type-signature">(static) </span>convertGeodeticToCartesian<span class="signature">()</span><span class="type-signature"> &rarr; {Array.&lt;number>}</span></h4>
 
     
 
@@ -371,7 +371,7 @@
             <td class="type">
             
                 
-<span class="param-type">array</span>
+<span class="param-type">Array.&lt;number></span>
 
 
             
@@ -381,7 +381,7 @@
 
             
 
-            <td class="description last">[latitude, longitude, height]</td>
+            <td class="description last">[latitude, longitude, height] (in degrees)</td>
         </tr>
 
     
@@ -420,7 +420,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="geodetic.js.html">geodetic.js</a>, <a href="geodetic.js.html#line127">line 127</a>
+        <a href="geodetic.js.html">geodetic.js</a>, <a href="geodetic.js.html#line130">line 130</a>
     </li></ul></dd>
     
 
@@ -458,7 +458,7 @@
     </dt>
     <dd>
         
-<span class="param-type">array</span>
+<span class="param-type">Array.&lt;number></span>
 
 
     </dd>
@@ -569,7 +569,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="geodetic.js.html">geodetic.js</a>, <a href="geodetic.js.html#line252">line 252</a>
+        <a href="geodetic.js.html">geodetic.js</a>, <a href="geodetic.js.html#line257">line 257</a>
     </li></ul></dd>
     
 
@@ -614,7 +614,8 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>convertToDecimalDegrees(['32', '49', '49.0800']) // 32.8303</code></pre>
+    <pre class="prettyprint"><code>var geodetic = require('applied').geodetic;
+geodetic.convert.toDecimalDegrees(['32', '49', '49.0800']) // 32.8303</code></pre>
 
 
 
@@ -719,7 +720,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="geodetic.js.html">geodetic.js</a>, <a href="geodetic.js.html#line223">line 223</a>
+        <a href="geodetic.js.html">geodetic.js</a>, <a href="geodetic.js.html#line227">line 227</a>
     </li></ul></dd>
     
 
@@ -768,8 +769,9 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>convertToDegreesDecimalMinutes([32.8303, 0, 0]);   // [32, 49.818]
-convertToDegreesDecimalMinutes([32, 49, 49.0800]); // [32, 49.818]</code></pre>
+    <pre class="prettyprint"><code>var geodetic = require('applied').geodetic;
+geodetic.convert.toDegreesDecimalMinutes([32.8303, 0, 0]);   // [32, 49.818]
+geodetic.convert.toDegreesDecimalMinutes([32, 49, 49.0800]); // [32, 49.818]</code></pre>
 
 
 
@@ -874,7 +876,7 @@ convertToDegreesDecimalMinutes([32, 49, 49.0800]); // [32, 49.818]</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="geodetic.js.html">geodetic.js</a>, <a href="geodetic.js.html#line189">line 189</a>
+        <a href="geodetic.js.html">geodetic.js</a>, <a href="geodetic.js.html#line192">line 192</a>
     </li></ul></dd>
     
 
@@ -923,8 +925,9 @@ convertToDegreesDecimalMinutes([32, 49, 49.0800]); // [32, 49.818]</code></pre>
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>convertToDegreesMinutesSeconds([32.8303, 0, 0]); // [32, 49, 49.0800]
-convertToDegreesMinutesSeconds([32, 49.818, 0]); // [32, 49, 49.0800]</code></pre>
+    <pre class="prettyprint"><code>var geodetic = require('applied').geodetic;
+geodetic.convert.toDegreesMinutesSeconds([32.8303, 0, 0]); // [32, 49, 49.0800]
+geodetic.convert.toDegreesMinutesSeconds([32, 49.818, 0]); // [32, 49, 49.0800]</code></pre>
 
 
 
@@ -1229,6 +1232,14 @@ convertToDegreesMinutesSeconds([32, 49.818, 0]); // [32, 49, 49.0800]</code></pr
     
 
 
+    <h5>Example</h5>
+    
+        <p class="code-caption">Radius at equator (latitude === 0)</p>
+    
+    <pre class="prettyprint"><code>var geodetic = require('applied').geodetic;
+geodetic.calculate.radius(0);// 6378137</code></pre>
+
+
 
         
     
@@ -1252,7 +1263,7 @@ convertToDegreesMinutesSeconds([32, 49.818, 0]); // [32, 49, 49.0800]</code></pr
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Tue Feb 07 2017 20:10:55 GMT-0600 (CST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Tue Feb 07 2017 21:16:37 GMT-0600 (CST)
 </footer>
 
 <script> prettyPrint(); </script>
