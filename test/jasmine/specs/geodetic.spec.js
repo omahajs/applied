@@ -54,6 +54,7 @@ define(function(require) {
         var geo;
         var expectedValue;
         var testValues;
+        var getRadius = geolib.calculate.radius;
         var toDMS = geolib.convert.toDegreesMinutesSeconds;
         var toDDM = geolib.convert.toDegreesDecimalMinutes;
         var toDecDeg = geolib.convert.toDecimalDegrees;
@@ -81,6 +82,10 @@ define(function(require) {
         it('can not change DATUM or FORMATS data', function() {
             expect(Object.isFrozen(geolib.DATUM)).toBeTruthy();
             expect(Object.isFrozen(geolib.FORMATS)).toBeTruthy();
+        });
+        it('calculate radius of the earth (WGS84 datum) at a given latitude', function() {
+            expect(getRadius(0)).toEqual(geolib.DATUM.EARTH_EQUATOR_RADIUS);
+            expect(getRadius(90)).toEqual(6361695.737933308);
         });
         it('can convert to degrees / decimal-minutes', function() {
             expectedValue = [32, 49.818, 0];
