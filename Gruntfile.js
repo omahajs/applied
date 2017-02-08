@@ -158,7 +158,7 @@ module.exports = function (grunt) {
             },
             coverage: {
                 autoWatch: false,
-                browsers: ['PhantomJS'],
+                browsers: ['Firefox'],
                 reporters: [
                     'spec',
                     'coverage'
