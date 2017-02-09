@@ -32,6 +32,7 @@
     "grunt-cli": "^1.0.0",
     "grunt-contrib-clean": "*",
     "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-requirejs": "^1.0.0",
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-eslint": "^19.0.0",
@@ -72,7 +73,7 @@
     "preversion": "npm test",
     "postversion": "git push && git push --tags",
     "rest-api": "json-server --port 8080 --watch test/data/db.json",
-    "build": "browserify -t deamdify -g uglifyify ./lib/index.js > ./applied.js",
+    "build": "browserify -g uglifyify ./lib/index.js -o ./applied.js",
     "prepublish": "npm run build",
     "inspect": "grunt jsinspect:app",
     "delete:remote": "git push origin --delete gh-pages && git fetch --all --prune",
@@ -81,5 +82,16 @@
     "delete": "npm run delete:docs",
     "predeploy": "grunt jsdoc copy:cname && git add reports/docs -f && git commit -m Deployment",
     "deploy": "git subtree push --prefix reports/docs origin gh-pages"
+  },
+  "browserify": {
+    "transform": [
+      "deamdify"
+    ]
+  },
+  "aliasify": {
+    "aliases": {
+      "common": "lib/common",
+      "geodetic": "./lib/geodetic"
+    }
   }
 }

@@ -22,49 +22,13 @@ module.exports = function (grunt) {
                 '<%= folders.reports %>/<%= folders.docs %>/*',
                 './styleguide'
             ],
-            coverage: ['<%= folders.reports %>/<%= folders.coverage %>/'],
-            compile: [
-                '<%= folders.app %>/templates.js',
-                '<%= folders.app %>/style.css',
-                '<%= folders.app %>/style.css.map'
-            ],
-            build: [
-                '<%= folders.dist %>/<%= folders.client %>',
-                '<%= folders.dist %>/<%= deployed.assets %>'
-            ]
+            coverage: ['<%= folders.reports %>/<%= folders.coverage %>/']
         },
         /**
          * Copy files and folders (used here to copy font files to deployment directory)
          * @see {@link https://github.com/gruntjs/grunt-contrib-copy}
         **/
         copy: {
-            fonts: {
-                files: [{
-                        expand: true,
-                        flatten: true,
-                        src: ['<%= folders.assets %>/<%= files.fonts %>'],
-                        dest: '<%= folders.dist %>/<%= deployed.assets %>/<%= deployed.fonts %>',
-                        filter: 'isFile'
-                    }]
-            },
-            library: {
-                files: [{
-                        expand: true,
-                        flatten: true,
-                        src: ['<%= folders.assets %>/library/*.js'],
-                        dest: '<%= folders.dist %>/<%= deployed.assets %>/library',
-                        filter: 'isFile'
-                    }]
-            },
-            images: {
-                files: [{
-                        expand: true,
-                        flatten: false,
-                        src: ['<%= folders.assets %>/<%= files.images %>'],
-                        dest: '<%= folders.dist %>',
-                        filter: 'isFile'
-                    }]
-            },
             cname: {
                 src: 'CNAME',
                 dest: 'reports/docs/'
@@ -201,33 +165,6 @@ module.exports = function (grunt) {
             }
         },
         /**
-         * Optimize JS code into single file using r.js
-         * @see {@link https://github.com/gruntjs/grunt-contrib-requirejs}
-         * @see (@link https://github.com/jrburke/r.js/blob/master/build/example.build.js}
-        **/
-        requirejs: {
-            bundle: {
-                options: {
-                    out: '<%= folders.dist %>/<%= folders.client %>/<%= files.configScript %>',
-                    mainConfigFile: '<%= folders.app %>/<%= files.configScript %>',
-                    baseUrl: '<%= folders.app %>',
-                    include: ['<%= files.configScript %>'],
-                    preserveLicenseComments: false,
-                    findNestedDependencies: true,
-                    optimize: 'uglify2',
-                    uglify2: {
-                        output: {
-                            comments: false,
-                            preamble: '/* <%= package.name %> - v<%= package.version %> - ' + '2016-02-07 */'
-                        },
-                        compress: {
-                            drop_console: true    //discard calls to console.* functions
-                        }
-                    }
-                }
-            }
-        },
-        /**
          * Run predefined tasks whenever watched file patterns are added, changed or deleted
          * @see {@link https://github.com/gruntjs/grunt-contrib-watch}
         **/
@@ -289,10 +226,7 @@ module.exports = function (grunt) {
             }
         },
         jsinspect: {
-            app: { src: ['<%= folders.app %>/<%= files.scripts %>'] },
-            models: { src: ['<%= folders.app %>/<%= files.models %>'] },
-            views: { src: ['<%= folders.app %>/<%= files.views %>'] },
-            controllers: { src: ['<%= folders.app %>/<%= files.controllers %>'] }
+            lib: {src: ['./lib/**/*.js']}
         }
     });
     require('time-grunt')(grunt);
