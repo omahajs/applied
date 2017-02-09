@@ -4,7 +4,7 @@
   "author": "Jason Wohlgemuth",
   "license": "MIT",
   "description": "Applied mathematics toolkit implemented in JavaScript",
-  "main": "lib/index.js",
+  "main": "applied.js",
   "keywords": [],
   "repository": {
     "type": "git",
@@ -74,7 +74,7 @@
     "preversion": "npm test",
     "postversion": "git push && git push --tags",
     "rest-api": "json-server --port 8080 --watch test/data/db.json",
-    "build": "browserify -t deamdify ./lib/index.js --standalone applied -o ./applied.js",
+    "build": "browserify -e lib/index.js -t deamdify ./lib/index.js --standalone applied -o ./applied.js",
     "postbuild": "uglifyjs applied.js --compress --mangle -o applied.js",
     "prepublish": "npm run build",
     "inspect": "grunt jsinspect:app",
