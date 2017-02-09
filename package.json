@@ -61,19 +61,21 @@
     "phantomjs-prebuilt": "^2.1.3",
     "sinon": "^1.15.4",
     "time-grunt": "^1.1.0",
-    "uglifyify": "^3.0.4"
+    "uglify-js": "^2.7.5"
   },
   "scripts": {
     "lint": "grunt eslint:app",
     "lint:watch": "grunt eslint:ing",
     "test": "npm run lint && grunt karma:coverage",
     "test:watch": "grunt karma:covering",
+    "test:build": "npm run build && node test/module",
     "test:ci": "npm test && grunt coveralls",
     "docs": "grunt jsdoc && grunt open:docs",
     "preversion": "npm test",
     "postversion": "git push && git push --tags",
     "rest-api": "json-server --port 8080 --watch test/data/db.json",
-    "build": "browserify ./lib/index.js -o ./applied.js",
+    "build": "browserify -t deamdify ./lib/index.js --standalone applied -o ./applied.js",
+    "postbuild": "uglifyjs applied.js --compress --mangle -o applied.js",
     "prepublish": "npm run build",
     "inspect": "grunt jsinspect:app",
     "delete:remote": "git push origin --delete gh-pages && git fetch --all --prune",
@@ -82,11 +84,5 @@
     "delete": "npm run delete:docs",
     "predeploy": "grunt jsdoc copy:cname && git add reports/docs -f && git commit -m Deployment",
     "deploy": "git subtree push --prefix reports/docs origin gh-pages"
-  },
-  "browserify": {
-    "transform": [
-      "deamdify",
-      "uglifyify"
-    ]
   }
 }
