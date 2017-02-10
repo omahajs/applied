@@ -1,6 +1,6 @@
-<div style="text-align:left;width:100%;">
+<p align="center">
     <img height="200px" alt="applied.js" src="https://dl.dropboxusercontent.com/s/fxhrif7vjdn9iii/applied-js.png?dl=0"/>
-</div>
+</p>
 </br>
 
 [![npm](https://img.shields.io/npm/v/applied.svg)](https://www.npmjs.com/package/applied)
