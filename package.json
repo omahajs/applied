@@ -70,6 +70,7 @@
     "test:watch": "grunt karma:covering",
     "test:build": "npm run build && node test/module",
     "test:ci": "npm test && grunt coveralls",
+    "test:perf": "npm run build && grunt benchmark",
     "docs": "grunt jsdoc && grunt open:docs",
     "preversion": "npm test",
     "postversion": "git push && git push --tags",
