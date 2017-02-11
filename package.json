@@ -36,7 +36,6 @@
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-eslint": "^19.0.0",
-    "grunt-express": "^1.4.1",
     "grunt-jsdoc": "*",
     "grunt-jsinspect": "^2.0.0",
     "grunt-jsonlint": "^1.0.4",

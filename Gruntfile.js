@@ -56,28 +56,6 @@ module.exports = function (grunt) {
             }
         },
         /**
-         * Start an Express.js web server
-         * @see {@link https://github.com/blai/grunt-express}
-        **/
-        express: {
-            main: {
-                options: {
-                    bases: [__dirname],
-                    port: '<%= ports.server %>',
-                    hostname: '0.0.0.0',
-                    livereload: '<%= ports.livereload %>'
-                }
-            },
-            demo: {
-                options: {
-                    bases: [__dirname],
-                    port: '<%= ports.server %>',
-                    hostname: '0.0.0.0',
-                    serverreload: true
-                }
-            }
-        },
-        /**
          * Generate documentation from JS comments using JSDoc3
          * @see {@link https://github.com/krampstudio/grunt-jsdoc}
         **/
