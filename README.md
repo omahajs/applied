@@ -20,6 +20,7 @@
       <img src="https://snyk.io/test/github/omahajs/applied/badge.svg"/>
     </a>
 </p>
+</br>
 
 > **Applied** mathematics toolkit implemented in **JS** (ECMAScript)
 
