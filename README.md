@@ -1,7 +1,6 @@
 <p align="center">
-    <img height="200px" alt="applied.js" src="https://dl.dropboxusercontent.com/s/fxhrif7vjdn9iii/applied-js.png?dl=0"/>
+    <img width="66%" alt="applied.js" src="https://dl.dropboxusercontent.com/s/fxhrif7vjdn9iii/applied-js.png?dl=0"/>
 </p>
-</br>
 
 <p align="center">
     <a href="https://www.npmjs.com/package/applied">
