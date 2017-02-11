@@ -3,12 +3,23 @@
 </p>
 </br>
 
-[![npm](https://img.shields.io/npm/v/applied.svg)](https://www.npmjs.com/package/applied)
-[![Build Status](https://travis-ci.org/omahajs/applied.svg?branch=master)](https://travis-ci.org/omahajs/applied)
-[![Coverage Status](https://coveralls.io/repos/github/omahajs/applied/badge.svg?branch=master)](https://coveralls.io/github/omahajs/applied?branch=master)
-[![bitHound Overall Score](https://www.bithound.io/github/omahajs/applied/badges/score.svg)](https://www.bithound.io/github/omahajs/applied)
-[![Known Vulnerabilities](https://snyk.io/test/github/omahajs/applied/badge.svg)](https://snyk.io/test/github/omahajs/applied)
-
+<p align="center">
+    <a href="https://www.npmjs.com/package/applied">
+      <img src="https://img.shields.io/npm/v/applied.svg"/>
+    </a>
+    <a href="https://travis-ci.org/omahajs/applied">
+      <img src="https://travis-ci.org/omahajs/applied.svg?branch=master"/>
+    </a>
+    <a href="https://coveralls.io/github/omahajs/applied?branch=master">
+      <img src="https://coveralls.io/repos/github/omahajs/applied/badge.svg?branch=master"/>
+    </a>
+    <a href="https://www.bithound.io/github/omahajs/applied">
+      <img src="https://www.bithound.io/github/omahajs/applied/badges/score.svg"/>
+    </a>
+    <a href="https://snyk.io/test/github/omahajs/applied">
+      <img src="https://snyk.io/test/github/omahajs/applied/badge.svg"/>
+    </a>
+</p>
 
 > **Applied** mathematics toolkit implemented in **JS** (ECMAScript)
 
