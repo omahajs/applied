@@ -6,6 +6,8 @@ define(function(require) {
 
     var EMPTY_VALUE = 0;
     var SANDIEGO_TO_OMAHA_KM = 2098;
+    var NORTHERN_TROPIC_DMS = [23, 26, 13.4];
+    var NORTHERN_TROPIC_DEG = 23.4370555555;
     var directions = [
         'North', 'South', 'East', 'West',
         'north', 'south', 'east', 'west',
@@ -86,6 +88,9 @@ define(function(require) {
         it('calculate radius of the earth (WGS84 datum) at a given latitude', function() {
             expect(getRadius(0)).toEqual(geolib.DATUM.EARTH_EQUATOR_RADIUS);
             expect(getRadius(90)).toEqual(6361695.737933308);
+            var latitude = toDecDeg(NORTHERN_TROPIC_DMS);
+            expect(getRadius(latitude)).toEqual(6374410.938026696);
+            expect(getRadius()).toEqual(geolib.DATUM.EARTH_MEAN_RADIUS);
         });
         it('can convert to degrees / decimal-minutes', function() {
             expectedValue = [32, 49.818, 0];
@@ -124,15 +129,17 @@ define(function(require) {
             expect(toDMS([0, 49, 0])).toEqual([0, 49, 0]);
             expect(toDMS([0, 0, 49.0800])).toEqual([0, 0, 49.0800]);
             expect(toDMS([32, 0, 49.0800])).toEqual([32, 0, 49.0800]);
+            expect(toDMS(NORTHERN_TROPIC_DEG)).toEqual(NORTHERN_TROPIC_DMS);
             expect(toDMS('invalid')).toBeNull();
         });
         it('can convert to decimal-degrees', function() {
             var pairs = [
                 [32.8303, [32, 49, 49.0800]],
-                [-32.8303, [-32, 49, 49.0800]]
+                [-32.8303, [-32, 49, 49.0800]],
+                [NORTHERN_TROPIC_DEG, NORTHERN_TROPIC_DMS]
             ];
             pairs.forEach(function(pair) {
-                expect(toDecDeg(pair[1])).toEqual(pair[0]);
+                expect(toDecDeg(pair[1])).toBeCloseTo(pair[0], 3);
             });
             expect(toDecDeg('invalid')).toBeNull();
             expect(toDecDeg({})).toBeNull();
