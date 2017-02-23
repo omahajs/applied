@@ -15,12 +15,12 @@
   },
   "dependencies": {
     "lodash": "^4.17.4",
-    "requirejs": "^2.2.0",
+    "requirejs": "^2.3.3",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
     "aliasify": "^2.1.0",
-    "browserify": "^14.0.0",
+    "browserify": "^14.1.0",
     "config": "^1.14.0",
     "deamdify": "^0.2.0",
     "eslint-config-omaha-prime-grade": "^2.0.1",
@@ -47,7 +47,7 @@
     "jasmine-core": "^2.2.0",
     "jsinspect": "^0.9.0",
     "json-server": "*",
-    "karma": "^1.0.0",
+    "karma": "^1.5.0",
     "karma-chrome-launcher": "^2.0.0",
     "karma-coverage": "^1.0.0",
     "karma-firefox-launcher": "^1.0.0",
