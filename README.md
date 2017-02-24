@@ -34,7 +34,7 @@ Roadmap
 - Geodetic
   - [x] cartesian <<>> cartographic unit conversions
   - [x] Spheroid (WGS84) radius calculation
-  - [ ] Spherical distance calculations
+  - [x] Spherical distance calculations
 - Atmosphere
   - [ ] mach <<>> feet-per-sec conversions
 
@@ -61,6 +61,7 @@ npm test
 
 - `npm test` > run test suite
 - `npm run test:watch` > watch task for running tests
+- `npm run test:build` > build module and verify that it can be loaded
 - `npm run lint` > lint code
 - `npm run lint:watch` > watch task for code linting
 - `npm run build` > bundle code using browserify

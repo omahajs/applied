@@ -30,19 +30,31 @@
  * @file Geodesic, cartographic, and geographic algorithms
  * @author Jason Wohlgemuth
  * @module geodetic
+ * @prop {object} convert
+ * @prop {function} convert.cartesianToGeodetic
+ * @prop {function} convert.geodeticToCartesian
+ * @prop {function} convert.toDecimalDegrees
+ * @prop {function} convert.toDegreesDecimalMinutes
+ * @prop {function} convert.toDegreesMinutesSeconds
+ * @prop {object} calculate
+ * @prop {function} calculate.radius
+ * [Calculate the radius of the earth]{@link module:geodetic~getRadius}
+ * @prop {function} calculate.distance
+ * [Calculate distance between two points on the earth]{@link module:geodetic~calculateHaversineDistance}
 **/
 define(function(require, exports, module) {
     'use strict';
 
-    var _ = require('lodash');
-    // var _ = require('underscore');
+    var _    = require('lodash');
+    var math = require('./math');
+    var deg  = math.deg;
+    var rad  = math.rad;
+    var hav  = math.hav;
 
     var TEN_THOUSANDTHS = 4;
     var MINUTES_PER_DEGREE = 60;
     var SECONDS_PER_MINUTE = 60;
     var SECONDS_PER_DEGREE = MINUTES_PER_DEGREE * SECONDS_PER_MINUTE;
-    var RADIANS_PER_DEGREE = Math.PI / 180.0;
-    var DEGREES_PER_RADIAN = 180.0 / Math.PI;
     var GEOSPATIAL_VALUE_LENGTH = 3;
 
     function frac(float) {
@@ -51,7 +63,6 @@ define(function(require, exports, module) {
         return (float - Math.trunc(float)).toFixed(digits);
     }
     function clone(obj) {return JSON.parse(JSON.stringify(obj));}
-    function multiply(a, b) {return a * b;}
     function squared(n) {return n * n;}
     function getArguments() {return Array.prototype.slice.apply(arguments);}
     function padArrayWithZeroes(n, arr) {return arr.concat(_.times(n - arr.length, _.constant(0)));}
@@ -65,9 +76,6 @@ define(function(require, exports, module) {
         ];
         return _.flow(processingSteps, fn);
     }
-
-    var rad = _.partial(multiply, [RADIANS_PER_DEGREE]);
-    var deg = _.partial(multiply, [DEGREES_PER_RADIAN]);
 
     /**
      * @namespace Geospatial Formats
@@ -100,6 +108,7 @@ define(function(require, exports, module) {
     var DATUM = Object.create(null, {
         EARTH_EQUATOR_RADIUS:       {enumerable: true, value: 6378137},
         EARTH_MEAN_RADIUS:          {enumerable: true, value: 6371001},
+        EARTH_AUTHALIC_RADIUS:      {enumerable: true, value: 6371007}, // radius of a hypothetical perfect sphere that has the same surface area as the reference ellipsoid
         SEMI_MAJOR_AXIS:            {enumerable: true, value: 6378137.0},
         SEMI_MINOR_AXIS:            {enumerable: true, value: 6356752.3142},
         FLATTENING:                 {enumerable: true, value: 0.0033528106718309896},
@@ -112,16 +121,16 @@ define(function(require, exports, module) {
     //
     // API
     //
-    var calculate = {
-        radius: getRadius,
-        distance: function() {/* haversine implementation */}
-    };
     var convert = {
         cartesianToGeodetic:     processInputs(convertCartesianToGeodetic),
         geodeticToCartesian:     processInputs(convertGeodeticToCartesian),
         toDecimalDegrees:        processInputs(convertToDecimalDegrees),
         toDegreesDecimalMinutes: processInputs(convertToDegreesDecimalMinutes),
         toDegreesMinutesSeconds: processInputs(convertToDegreesMinutesSeconds)
+    };
+    var calculate = {
+        radius: getRadius,
+        distance: calculateHaversineDistance
     };
     module.exports = {
         DATUM: DATUM,
@@ -169,6 +178,29 @@ define(function(require, exports, module) {
             radius = DATUM.SEMI_MAJOR_AXIS * (1 - (DATUM.FLATTENING * squared(SIN_THETA)));
         }
         return radius;
+    }
+    /**
+     * @function calculateHaversineDistance
+     * @param {number[]} pointA [latitude, longitude] (in degrees)
+     * @param {number[]} pointB [latitude, longitude] (in degrees)
+     * @returns {number} Distance between points (in meters)
+     * @example &lt;caption>Calulate distance from Omaha, NE to San Diego, CA&lt;/caption>
+     * var calculate = require('applied').geodetic.calculate;
+     * var a = [41.2500, 96.0000];// Omaha, NE
+     * var b = [32.7157, 117.1611];// San Diego, CA
+     * calculate.distance(a, b); // about 2098 km
+    **/
+    function calculateHaversineDistance(pointA, pointB) {
+        var a = pointA.map(rad);
+        var b = pointB.map(rad);
+        var Δ = [
+            b[0] - a[0],// latitude
+            b[1] - a[1] // longitude
+        ];
+        var cos = Math.cos;
+        var R = DATUM.EARTH_AUTHALIC_RADIUS;
+        var inner = hav(Δ[0]) + (cos(a[0]) * cos(b[0]) * hav(Δ[1]))
+        return 2 * R * Math.asin(Math.sqrt(inner));
     }
     /**
      * @function convertGeodeticToCartesian
@@ -334,13 +366,13 @@ define(function(require, exports, module) {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-common.html">common</a></li><li><a href="module-geodetic.html">geodetic</a></li></ul><h3>Namespaces</h3><ul><li><a href="module-geodetic-Geospatial%2520Formats.html">Geospatial Formats</a></li><li><a href="module-geodetic-WGS84%2520Datum.html">WGS84 Datum</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-common.html">common</a></li><li><a href="module-geodetic.html">geodetic</a></li><li><a href="module-math.html">math</a></li></ul><h3>Namespaces</h3><ul><li><a href="module-geodetic-Geospatial%2520Formats.html">Geospatial Formats</a></li><li><a href="module-geodetic-WGS84%2520Datum.html">WGS84 Datum</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Mon Feb 13 2017 20:32:50 GMT-0600 (CST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Fri Feb 24 2017 15:37:59 GMT-0600 (CST)
 </footer>
 
 <script> prettyPrint(); </script>

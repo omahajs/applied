@@ -5,7 +5,7 @@ define(function(require) {
     var geolib = require('index').geodetic;
 
     var EMPTY_VALUE = 0;
-    var SANDIEGO_TO_OMAHA_KM = 2098;
+    var SANDIEGO_TO_OMAHA   = 2097903.6774;
     var NORTHERN_TROPIC_DMS = [23, 26, 13.4];
     var NORTHERN_TROPIC_DEG = 23.4370555555;
     var directions = [
@@ -207,6 +207,13 @@ define(function(require) {
             testCartesianAccuracy(latitude, longitude, height);
             height = 100000;
             testGeodeticAccuracy(cartesiansFromCesium[height], height);
+        });
+        it('can calculate distance with Haversine formula', function() {
+            var getDistance = geolib.calculate.distance;
+            var a = [omahaLat[0], omahaLon[0]];
+            var b = [sanDiegoLat[0], sanDiegoLon[0]];
+            expect(getDistance(a, b)).toBeCloseTo(SANDIEGO_TO_OMAHA, 4);
+            expect(getDistance(b, a)).toBeCloseTo(SANDIEGO_TO_OMAHA, 4);
         });
     });
 });
