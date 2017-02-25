@@ -109,7 +109,7 @@ module.exports = function (grunt) {
             covering: {
                 autoWatch: true,
                 singleRun: false,
-                browsers: ['Firefox'],
+                browsers: ['Firefox', 'PhantomJS'],
                 reporters: [
                     'progress',
                     'coverage'
