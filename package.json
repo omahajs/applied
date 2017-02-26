@@ -23,8 +23,9 @@
     "browserify": "^14.1.0",
     "config": "^1.14.0",
     "deamdify": "^0.2.0",
-    "eslint-config-omaha-prime-grade": "^2.0.1",
+    "eslint-config-omaha-prime-grade": "^3.0.2",
     "eslint-plugin-backbone": "^2.0.1",
+    "eslint-plugin-compat": "^1.0.1",
     "fs-promise": "^2.0.0",
     "globby": "^6.0.0",
     "grunt": "^1.0.0",
@@ -62,6 +63,10 @@
     "time-grunt": "^1.1.0",
     "uglify-js": "^2.7.5"
   },
+  "browserslist": [
+    "last 2 chrome versions",
+    "last 2 firefox versions"
+  ],
   "scripts": {
     "lint": "grunt eslint:app",
     "lint:watch": "grunt eslint:ing",
