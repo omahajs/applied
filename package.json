@@ -23,7 +23,7 @@
     "browserify": "^14.1.0",
     "config": "^1.14.0",
     "deamdify": "^0.2.0",
-    "eslint-config-omaha-prime-grade": "^2.0.1",
+    "eslint-config-omaha-prime-grade": "^3.0.0",
     "eslint-plugin-backbone": "^2.0.1",
     "fs-promise": "^2.0.0",
     "globby": "^6.0.0",
