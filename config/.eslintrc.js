@@ -1,4 +1,4 @@
-var ALLOWED_MAGIC_NUMBERS = [-1, 0, 1, 2, 180.0];
+var ALLOWED_MAGIC_NUMBERS = [-1, 0, 1, 2, 180.0, 1000];
 
 module.exports = {
     env: {
