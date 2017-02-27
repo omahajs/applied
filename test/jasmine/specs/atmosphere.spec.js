@@ -48,6 +48,8 @@ define(function(require, exports, module) {
             expect(toMach(speed())).toEqual(1);
             expect(toMach(speed(), 0)).toEqual(1);
             expect(toMach(speed(10000), 10000)).toEqual(1);
+            console.info(toMach(speed(), 20000));
+            console.info(speed(20000));
         });
     });
 });
