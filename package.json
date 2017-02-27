@@ -23,6 +23,7 @@
     "browserify": "^14.1.0",
     "config": "^1.14.0",
     "deamdify": "^0.2.0",
+    "docdash": "^0.4.0",
     "eslint-config-omaha-prime-grade": "^3.0.2",
     "eslint-plugin-backbone": "^2.0.1",
     "eslint-plugin-compat": "^1.0.1",

@@ -66,7 +66,10 @@ module.exports = function (grunt) {
                     '!<%= folders.app %>/templates.js'
                 ],
                 dest: '<%= folders.reports %>/<%= folders.docs %>',
-                options: { readme: 'README.md' }
+                options: {
+                    readme: 'README.md',
+                    template: 'node_modules/docdash'
+                }
             }
         },
         /**
