@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>WGS84 Datum - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-atmosphere.html">atmosphere</a><ul class='methods'><li data-type='method'><a href="module-atmosphere.html#~calculateKineticTemperature">calculateKineticTemperature</a></li><li data-type='method'><a href="module-atmosphere.html#~calculateMolecularTemperature">calculateMolecularTemperature</a></li><li data-type='method'><a href="module-atmosphere.html#~calculateSpeedOfSound">calculateSpeedOfSound</a></li><li data-type='method'><a href="module-atmosphere.html#~convertMetersPerSecondToMach">convertMetersPerSecondToMach</a></li><li data-type='method'><a href="module-atmosphere.html#~getAtmosphericStrata">getAtmosphericStrata</a></li></ul></li><li><a href="module-geodetic.html">geodetic</a><ul class='methods'><li data-type='method'><a href="module-geodetic.html#.convertCartesianToGeodetic">convertCartesianToGeodetic</a></li><li data-type='method'><a href="module-geodetic.html#.convertGeodeticToCartesian">convertGeodeticToCartesian</a></li><li data-type='method'><a href="module-geodetic.html#.convertToDecimalDegrees">convertToDecimalDegrees</a></li><li data-type='method'><a href="module-geodetic.html#.convertToDegreesDecimalMinutes">convertToDegreesDecimalMinutes</a></li><li data-type='method'><a href="module-geodetic.html#.convertToDegreesMinutesSeconds">convertToDegreesMinutesSeconds</a></li><li data-type='method'><a href="module-geodetic.html#~calculateHaversineDistance">calculateHaversineDistance</a></li><li data-type='method'><a href="module-geodetic.html#~getGeocentricLatitude">getGeocentricLatitude</a></li><li data-type='method'><a href="module-geodetic.html#~getRadius">getRadius</a></li></ul></li><li><a href="module-math.html">math</a><ul class='methods'><li data-type='method'><a href="module-math.html#~delta">delta</a></li></ul></li><li><a href="module-polyfill.html">polyfill</a></li></ul><h3>Namespaces</h3><ul><li><a href="module-atmosphere-Atmospheric%2520Strata.html">Atmospheric Strata</a></li><li><a href="module-geodetic-Geospatial%2520Formats.html">Geospatial Formats</a></li><li><a href="module-geodetic-WGS84%2520Datum.html">WGS84 Datum</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">WGS84 Datum</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+            <span class="ancestors"><a href="module-geodetic.html">geodetic</a>~</span>
+        
+        WGS84 Datum
+        </h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="geodetic.js.html">geodetic.js</a>, <a href="geodetic.js.html#line74">line 74</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://earth-info.nga.mil/GandG/publications/tr8350.2/tr8350_2.html">DoD World Geodetic System 1984</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>EARTH_AUTHALIC_RADIUS</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Radius of a hypothetical perfect sphere that has the same surface area as the reference ellipsoid</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>SEMI_MAJOR_AXIS</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    <code>6378137.0</code>
+                
+                </td>
+            
+
+            <td class="description last">a</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>SEMI_MINOR_AXIS</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    <code>6356752.3142</code>
+                
+                </td>
+            
+
+            <td class="description last">a(1-f)</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>FLATTENING</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    <code>0.0033528106718309896</code>
+                
+                </td>
+            
+
+            <td class="description last">f</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>FLATTENING_INVERSE</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    <code>298.257223563</code>
+                
+                </td>
+            
+
+            <td class="description last">1/f</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>FIRST_ECCENTRICITY_SQUARED</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    <code>0.006694380004260827</code>
+                
+                </td>
+            
+
+            <td class="description last">e^2</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>LINEAR_ECCENTRICITY</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    <code>521854.00842339</code>
+                
+                </td>
+            
+
+            <td class="description last">sqrt(a^2 - b^2)</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>AXIS_RATIO</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    <code>0.996647189335</code>
+                
+                </td>
+            
+
+            <td class="description last">b/a</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+        
+            <div class="description">World Geodetic System 1984 (WGS84) is an Earth-centered, Earth-fixed (ECEF) global datum</div>
+        
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Tue Feb 28 2017 15:14:46 GMT-0600 (CST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
