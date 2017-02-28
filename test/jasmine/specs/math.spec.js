@@ -1,7 +1,7 @@
 define(function(require, exports, module) {
     'use strict';
 
-    var _    = require('lodash');
+    var flow = require('lodash/flow');
     var math = require('index').math;
     var deg  = math.deg;
     var rad  = math.rad;
@@ -21,17 +21,16 @@ define(function(require, exports, module) {
     describe('Math module', function() {
         it('can convert rad<<>>deg', function() {
             DEG_RAD_PAIRS.forEach(function(pair) {
-                var val = _(pair);
-                expect(rad(val.head())).toEqual(val.last());
-                expect(val.head()).toEqual(deg(val.last()));
+                expect(rad(pair[0])).toEqual(pair[1]);
+                expect(pair[0]).toEqual(deg(pair[1]));
             });
         });
         it('can calculate haversine and archaversine', function() {
-            var hav = _.flow(rad, math.hav);
+            var hav = flow(rad, math.hav);
             var ahav = math.ahav;
             HAVERSINE_TABLE.forEach(function(pair) {
-                expect(hav(_.head(pair))).toBeCloseTo(_.last(pair), 4);
-                expect(ahav(_.last(pair))).toBeCloseTo(rad(_.head(pair)), 3);
+                expect(hav(pair[0])).toBeCloseTo(pair[1], 4);
+                expect(ahav(pair[1])).toBeCloseTo(rad(pair[0]), 3);
             });
         });
     });

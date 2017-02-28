@@ -1,8 +1,10 @@
 define(function(require) {
     'use strict';
 
-    var _      = require('lodash');
-    var geolib = require('index').geodetic;
+    var values   = require('lodash/values');
+    var isNumber = require('lodash/isNumber');
+    var isString = require('lodash/isString');
+    var geolib   = require('index').geodetic;
 
     var EMPTY_VALUE = 0;
     var SANDIEGO_TO_OMAHA   = 2097903.6774;
@@ -78,8 +80,8 @@ define(function(require) {
             });
         }
         it('has appropriate data stored in DATUM and FORMATS objects', function() {
-            expect(_.keys(geolib.DATUM).length).toEqual(_.values(geolib.DATUM).filter(_.isNumber).length);
-            expect(_.keys(geolib.FORMATS).length).toEqual(_.values(geolib.FORMATS).filter(_.isString).length);
+            expect(Object.keys(geolib.DATUM).length).toEqual(values(geolib.DATUM).filter(isNumber).length);
+            expect(Object.keys(geolib.FORMATS).length).toEqual(values(geolib.FORMATS).filter(isString).length);
         });
         it('can not change DATUM or FORMATS data', function() {
             expect(Object.isFrozen(geolib.DATUM)).toBeTruthy();
