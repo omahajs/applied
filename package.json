@@ -14,7 +14,6 @@
     "node": "*"
   },
   "dependencies": {
-    "lodash": "^4.17.4",
     "lodash-amd": "^4.17.4",
     "requirejs": "^2.3.3"
   },
@@ -73,7 +72,7 @@
   "scripts": {
     "lint": "grunt eslint:app",
     "lint:watch": "grunt eslint:ing",
-    "test": "npm run lint && grunt karma:coverage",
+    "test": "npm run lint && grunt karma:coverage && npm run test:build",
     "test:watch": "grunt karma:covering",
     "test:build": "npm run build && node test/module",
     "test:ci": "npm test && grunt coveralls",
