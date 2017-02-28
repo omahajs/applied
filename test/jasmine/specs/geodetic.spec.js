@@ -1,7 +1,7 @@
 define(function(require) {
     'use strict';
 
-    var _      = require('underscore');
+    var _      = require('lodash');
     var geolib = require('index').geodetic;
 
     var EMPTY_VALUE = 0;
