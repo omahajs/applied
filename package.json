@@ -1,6 +1,6 @@
 {
   "name": "applied",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "author": "Jason Wohlgemuth",
   "license": "MIT",
   "description": "Applied mathematics toolkit implemented in JavaScript",
