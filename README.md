@@ -36,7 +36,21 @@ Roadmap
   - [x] Spheroid (WGS84) radius calculation
   - [x] Spherical distance calculations
 - Atmosphere
-  - [ ] mach <<>> feet-per-sec conversions
+  - [x] mach <<>> m/s conversions
+  - [x] calculate speed of sound as function of altitude
+- General Math
+  - [ ] delta (numbers *and* arrays)
+  - [ ] modulo
+  - [ ] divisibility
+  - [ ] determinants
+  - [ ] simplex method (OR)
+  - [ ] linear Diophantine equations
+  - [ ] Stirling's approximation
+- General Physics
+  - [ ] kinematic equations
+  - [ ] temperature conversions
+  - [ ] lens equations
+
 
 Development
 -----------
