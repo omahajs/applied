@@ -39,7 +39,6 @@ Roadmap
   - [x] mach <<>> m/s conversions
   - [x] calculate speed of sound as function of altitude
 - General Math
-  - [ ] delta (numbers *and* arrays)
   - [ ] modulo
   - [ ] divisibility
   - [ ] determinants
