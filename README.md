@@ -46,7 +46,6 @@ Roadmap
   - [ ] linear Diophantine equations
   - [ ] Stirling's approximation
 - General Physics
-  - [ ] significant figures
   - [ ] kinematic equations
   - [ ] temperature conversions
   - [ ] lens equations
