@@ -38,17 +38,8 @@ Roadmap
 - Atmosphere
   - [x] mach <<>> m/s conversions
   - [x] calculate speed of sound as function of altitude
-- General Math
-  - [ ] modulo
-  - [ ] divisibility
-  - [ ] determinants
-  - [ ] simplex method (OR)
-  - [ ] linear Diophantine equations
-  - [ ] Stirling's approximation
-- General Physics
-  - [ ] kinematic equations
-  - [ ] temperature conversions
-  - [ ] lens equations
+- Thermal
+  - [ ] temperature conversions (R, F, C, K)
 
 
 Development
