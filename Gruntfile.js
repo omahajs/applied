@@ -135,20 +135,6 @@ module.exports = function (grunt) {
             styleguide: { path: __dirname + '/styleguide/index.html' }
         },
         /**
-         * Generate persistent static analysis reports with plato
-         * @see {@link https://github.com/jsoverson/grunt-plato}
-        **/
-        plato: {
-            app: {
-                src: [
-                    '<%= folders.app %>/<%= files.scripts %>',
-                    '!<%= folders.app %>/templates.js'
-                ],
-                dest: '<%= folders.reports %>/plato',
-                options: { eslint: require(config.files.config.eslint) }
-            }
-        },
-        /**
          * Run predefined tasks whenever watched file patterns are added, changed or deleted
          * @see {@link https://github.com/gruntjs/grunt-contrib-watch}
         **/
@@ -208,9 +194,6 @@ module.exports = function (grunt) {
                 recursive: true,
                 force: true
             }
-        },
-        jsinspect: {
-            lib: {src: ['./lib/**/*.js']}
         }
     });
     require('time-grunt')(grunt);
