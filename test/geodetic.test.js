@@ -3,7 +3,7 @@
 var values   = require('lodash/values');
 var isNumber = require('lodash/isNumber');
 var isString = require('lodash/isString');
-var geolib   = require('../applied').geodetic;
+var geolib   = require('../lib/geodetic');
 
 var EMPTY_VALUE = 0;
 var SANDIEGO_TO_OMAHA   = 2097903.6774;

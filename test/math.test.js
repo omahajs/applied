@@ -4,7 +4,7 @@ var flow = require('lodash/flow');
 var get = require('lodash/get');
 var partial = require('lodash/partial');
 var constant = require('lodash/constant');
-var math = require('../applied').math;
+var math = require('../lib/math');
 var deg  = math.deg;
 var rad  = math.rad;
 

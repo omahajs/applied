@@ -1,6 +1,6 @@
 'use strict';
 
-var atmlib = require('../applied').atmosphere;
+var atmlib = require('../lib/atmosphere');
 
 var TROPOSPHERE_VALUES = [
     0,
