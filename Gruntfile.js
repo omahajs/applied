@@ -3,6 +3,12 @@
 module.exports = function (grunt) {
     grunt.initConfig({
         package: grunt.file.readJSON('package.json'),
+        copy: {
+            cname: {
+                src: 'CNAME',
+                dest: 'reports/docs/'
+            }
+        },
         /**
          * Generate documentation from JS comments using JSDoc3
          * @see {@link https://github.com/krampstudio/grunt-jsdoc}

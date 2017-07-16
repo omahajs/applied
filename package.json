@@ -29,6 +29,7 @@
     "grunt": "^1.0.0",
     "grunt-benchmark": "^1.0.0",
     "grunt-cli": "^1.0.0",
+    "grunt-contrib-copy": "^1.0.0",
     "grunt-jsdoc": "^2.1.0",
     "grunt-open": "^0.2.3",
     "jest": "^20.0.4",
