@@ -58,6 +58,7 @@
     "test": "jest ./test/.*.test.js",
     "test:watch": "npm test -- --watch",
     "test:perf": "npm run build && grunt benchmark",
+    "test:ci": "npm test",
     "docs": "grunt jsdoc && grunt open:docs",
     "preversion": "npm test",
     "postversion": "git push && git push --tags",
