@@ -22,7 +22,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-atmosphere.html">atmosphere</a><ul class='methods'><li data-type='method'><a href="module-atmosphere.html#~calculateKineticTemperature">calculateKineticTemperature</a></li><li data-type='method'><a href="module-atmosphere.html#~calculateMolecularTemperature">calculateMolecularTemperature</a></li><li data-type='method'><a href="module-atmosphere.html#~calculateSpeedOfSound">calculateSpeedOfSound</a></li><li data-type='method'><a href="module-atmosphere.html#~convertMetersPerSecondToMach">convertMetersPerSecondToMach</a></li><li data-type='method'><a href="module-atmosphere.html#~getAtmosphericStrata">getAtmosphericStrata</a></li><li data-type='method'><a href="module-atmosphere.html#~molecularWeight">molecularWeight</a></li></ul></li><li><a href="module-geodetic.html">geodetic</a><ul class='methods'><li data-type='method'><a href="module-geodetic.html#.convertCartesianToGeodetic">convertCartesianToGeodetic</a></li><li data-type='method'><a href="module-geodetic.html#.convertGeodeticToCartesian">convertGeodeticToCartesian</a></li><li data-type='method'><a href="module-geodetic.html#.convertToDecimalDegrees">convertToDecimalDegrees</a></li><li data-type='method'><a href="module-geodetic.html#.convertToDegreesDecimalMinutes">convertToDegreesDecimalMinutes</a></li><li data-type='method'><a href="module-geodetic.html#.convertToDegreesMinutesSeconds">convertToDegreesMinutesSeconds</a></li><li data-type='method'><a href="module-geodetic.html#~calculateHaversineDistance">calculateHaversineDistance</a></li><li data-type='method'><a href="module-geodetic.html#~getGeocentricLatitude">getGeocentricLatitude</a></li><li data-type='method'><a href="module-geodetic.html#~getRadius">getRadius</a></li></ul></li><li><a href="module-math.html">math</a></li></ul><h3>Namespaces</h3><ul><li><a href="module-atmosphere-Atmospheric%2520Strata.html">Atmospheric Strata</a></li><li><a href="module-geodetic-Geospatial%2520Formats.html">Geospatial Formats</a></li><li><a href="module-geodetic-WGS84%2520Datum.html">WGS84 Datum</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-atmosphere.html">atmosphere</a><ul class='methods'><li data-type='method'><a href="module-atmosphere.html#~calculateKineticTemperature">calculateKineticTemperature</a></li><li data-type='method'><a href="module-atmosphere.html#~calculateMolecularTemperature">calculateMolecularTemperature</a></li><li data-type='method'><a href="module-atmosphere.html#~calculateSpeedOfSound">calculateSpeedOfSound</a></li><li data-type='method'><a href="module-atmosphere.html#~convertMetersPerSecondToMach">convertMetersPerSecondToMach</a></li><li data-type='method'><a href="module-atmosphere.html#~getStrata">getStrata</a></li><li data-type='method'><a href="module-atmosphere.html#~molecularWeight">molecularWeight</a></li></ul></li><li><a href="module-geodetic.html">geodetic</a><ul class='methods'><li data-type='method'><a href="module-geodetic.html#.convertCartesianToGeodetic">convertCartesianToGeodetic</a></li><li data-type='method'><a href="module-geodetic.html#.convertGeodeticToCartesian">convertGeodeticToCartesian</a></li><li data-type='method'><a href="module-geodetic.html#.convertToDecimalDegrees">convertToDecimalDegrees</a></li><li data-type='method'><a href="module-geodetic.html#.convertToDegreesDecimalMinutes">convertToDegreesDecimalMinutes</a></li><li data-type='method'><a href="module-geodetic.html#.convertToDegreesMinutesSeconds">convertToDegreesMinutesSeconds</a></li><li data-type='method'><a href="module-geodetic.html#~calculateHaversineDistance">calculateHaversineDistance</a></li><li data-type='method'><a href="module-geodetic.html#~getGeocentricLatitude">getGeocentricLatitude</a></li><li data-type='method'><a href="module-geodetic.html#~getRadius">getRadius</a></li></ul></li><li><a href="module-math.html">math</a></li></ul><h3>Namespaces</h3><ul><li><a href="module-atmosphere-Atmospheric%2520Strata.html">Atmospheric Strata</a></li><li><a href="module-geodetic-Geospatial%2520Formats.html">Geospatial Formats</a></li><li><a href="module-geodetic-WGS84%2520Datum.html">WGS84 Datum</a></li></ul>
 </nav>
 
 <div id="main">
@@ -465,7 +465,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="geodetic.js.html">geodetic.js</a>, <a href="geodetic.js.html#line211">line 211</a>
+        <a href="geodetic.js.html">geodetic.js</a>, <a href="geodetic.js.html#line206">line 206</a>
     </li></ul></dd>
     
 
@@ -630,7 +630,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="geodetic.js.html">geodetic.js</a>, <a href="geodetic.js.html#line186">line 186</a>
+        <a href="geodetic.js.html">geodetic.js</a>, <a href="geodetic.js.html#line183">line 183</a>
     </li></ul></dd>
     
 
@@ -788,7 +788,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="geodetic.js.html">geodetic.js</a>, <a href="geodetic.js.html#line325">line 325</a>
+        <a href="geodetic.js.html">geodetic.js</a>, <a href="geodetic.js.html#line320">line 320</a>
     </li></ul></dd>
     
 
@@ -839,9 +839,9 @@
     
         <p class="code-caption">Convert a degree minutes seconds value</p>
     
-    <pre class="prettyprint"><code>var geo = require('applied').geodetic;
-var val = ['32', '49', '49.0800'];
-var dd = geo.convert.toDecimalDegrees(val);
+    <pre class="prettyprint"><code>const {geodetic} = require('applied');
+const val = ['32', '49', '49.0800'];
+let dd = geodetic.convert.toDecimalDegrees(val);
 console.log(dd);// 32.8303</code></pre>
 
 
@@ -945,7 +945,7 @@ console.log(dd);// 32.8303</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="geodetic.js.html">geodetic.js</a>, <a href="geodetic.js.html#line289">line 289</a>
+        <a href="geodetic.js.html">geodetic.js</a>, <a href="geodetic.js.html#line283">line 283</a>
     </li></ul></dd>
     
 
@@ -996,16 +996,16 @@ console.log(dd);// 32.8303</code></pre>
     
         <p class="code-caption">Convert a decimal degree value</p>
     
-    <pre class="prettyprint"><code>var geo = require('applied').geodetic;
-var val = [32.8303, 0, 0];
-var ddm = geo.convert.toDegreesDecimalMinutes(val);
+    <pre class="prettyprint"><code>const {geodetic} = require('applied');
+const val = [32.8303, 0, 0];
+let ddm = geodetic.convert.toDegreesDecimalMinutes(val);
 console.log(ddm);// [32, 49.818]</code></pre>
 
         <p class="code-caption">Convert a degree minutes seconds value</p>
     
-    <pre class="prettyprint"><code>var geo = require('applied').geodetic;
-var val = [32, 49, 49.0800];
-var ddm = geo.convert.toDegreesDecimalMinutes(val);
+    <pre class="prettyprint"><code>const {geodetic} = require('applied');
+const val = [32, 49, 49.0800];
+let ddm = geodetic.convert.toDegreesDecimalMinutes(val);
 console.log(ddm);// [32, 49.818]</code></pre>
 
 
@@ -1113,7 +1113,7 @@ console.log(ddm);// [32, 49.818]</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="geodetic.js.html">geodetic.js</a>, <a href="geodetic.js.html#line248">line 248</a>
+        <a href="geodetic.js.html">geodetic.js</a>, <a href="geodetic.js.html#line241">line 241</a>
     </li></ul></dd>
     
 
@@ -1164,16 +1164,16 @@ console.log(ddm);// [32, 49.818]</code></pre>
     
         <p class="code-caption">Convert a decimal degree value</p>
     
-    <pre class="prettyprint"><code>var geo = require('applied').geodetic;
-var val = [32.8303, 0, 0];
-var dms = geo.convert.toDegreesMinutesSeconds(val);
+    <pre class="prettyprint"><code>const {geodetic} = require('applied');
+const val = [32.8303, 0, 0];
+var dms = geodetic.convert.toDegreesMinutesSeconds(val);
 console.log(dms);// [32, 49, 49.0800]</code></pre>
 
         <p class="code-caption">Convert a decimal degree minutes value</p>
     
-    <pre class="prettyprint"><code>var geo = require('applied').geodetic;
-var val = [32, 49.818, 0];
-var dms = geo.convert.toDegreesMinutesSeconds(val);
+    <pre class="prettyprint"><code>const {geodetic} = require('applied');
+const val = [32, 49.818, 0];
+let dms = geodetic.convert.toDegreesMinutesSeconds(val);
 console.log(dms);// [32, 49, 49.0800]</code></pre>
 
 
@@ -1281,7 +1281,7 @@ console.log(dms);// [32, 49, 49.0800]</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="geodetic.js.html">geodetic.js</a>, <a href="geodetic.js.html#line162">line 162</a>
+        <a href="geodetic.js.html">geodetic.js</a>, <a href="geodetic.js.html#line160">line 160</a>
     </li></ul></dd>
     
 
@@ -1332,10 +1332,10 @@ console.log(dms);// [32, 49, 49.0800]</code></pre>
     
         <p class="code-caption">Calulate distance from Omaha, NE to San Diego, CA</p>
     
-    <pre class="prettyprint"><code>var geo = require('applied').geodetic;
-var a = [41.2500, 96.0000];// Omaha, NE
-var b = [32.7157, 117.1611];// San Diego, CA
-var distance = geo.calculate.distance(a, b);
+    <pre class="prettyprint"><code>const {geodetic} = require('applied');
+const a = [41.2500, 96.0000];// Omaha, NE
+const b = [32.7157, 117.1611];// San Diego, CA
+let distance = geodetic.calculate.distance(a, b);
 console.log(distance);// about 2098 km</code></pre>
 
 
@@ -1466,7 +1466,7 @@ console.log(distance);// about 2098 km</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="geodetic.js.html">geodetic.js</a>, <a href="geodetic.js.html#line122">line 122</a>
+        <a href="geodetic.js.html">geodetic.js</a>, <a href="geodetic.js.html#line120">line 120</a>
     </li></ul></dd>
     
 
@@ -1617,7 +1617,7 @@ console.log(distance);// about 2098 km</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="geodetic.js.html">geodetic.js</a>, <a href="geodetic.js.html#line131">line 131</a>
+        <a href="geodetic.js.html">geodetic.js</a>, <a href="geodetic.js.html#line129">line 129</a>
     </li></ul></dd>
     
 
@@ -1672,22 +1672,22 @@ console.log(distance);// about 2098 km</code></pre>
     
         <p class="code-caption">Radius at equator</p>
     
-    <pre class="prettyprint"><code>var geo = require('applied').geodetic;
-var r = geo.calculate.radius(0);
+    <pre class="prettyprint"><code>const {geodetic} = require('applied');
+let r = geodetic.calculate.radius(0);
 console.log(r);// 6378137</code></pre>
 
         <p class="code-caption">Radius at the Northern Tropic (Tropic of Cancer)</p>
     
-    <pre class="prettyprint"><code>var geo = require('applied').geodetic;
-var NORTHERN_TROPIC_LATITUDE = [23, 26, 13.4];
-var latitude = geo.convert.toDecimalDegrees(NORTHERN_TROPIC_LATITUDE);
-var r = geo.calculate.radius(latitude);
+    <pre class="prettyprint"><code>const {geodetic} = require('applied');
+const NORTHERN_TROPIC_LATITUDE = [23, 26, 13.4];
+let latitude = geodetic.convert.toDecimalDegrees(NORTHERN_TROPIC_LATITUDE);
+let r = geodetic.calculate.radius(latitude);
 console.log(r);// 6374410.938026696</code></pre>
 
         <p class="code-caption">Radius with no latitude input (returns authalic radius)</p>
     
-    <pre class="prettyprint"><code>var geo = require('applied').geodetic;
-var r = geo.calculate.radius();
+    <pre class="prettyprint"><code>const {geodetic} = require('applied');
+let r = geodetic.calculate.radius();
 console.log(r);// 6371001</code></pre>
 
 
@@ -1808,7 +1808,7 @@ console.log(r);// 6371001</code></pre>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.3</a> on Sun Jul 16 2017 13:33:50 GMT-0500 (CDT) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.3</a> on Sun Jul 16 2017 15:36:57 GMT-0500 (CDT) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
