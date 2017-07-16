@@ -50,7 +50,7 @@
     "dev": "stmux [ \"npm run test:watch\" .. \"npm run lint:watch\" ]",
     "lint": "eslint -c ./.eslintrc.js ./lib/*.js",
     "lint:watch": "watch 'npm run lint' ./lib",
-    "test": "jest ./test/.*.test.js",
+    "test": "jest test/.*.test.js",
     "test:watch": "npm test -- --watch",
     "test:perf": "npm run build && grunt benchmark",
     "test:ci": "npm test -- --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",

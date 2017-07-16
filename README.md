@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="66%" alt="applied.js" src="https://dl.dropboxusercontent.com/s/fxhrif7vjdn9iii/applied-js.png?dl=0"/>
+    <img width="50%" alt="applied.js" src="https://dl.dropboxusercontent.com/s/fxhrif7vjdn9iii/applied-js.png?dl=0"/>
 </p>
 
 <p align="center">
