@@ -26,7 +26,6 @@
     "docdash": "^0.4.0",
     "eslint": "^4.2.0",
     "eslint-config-omaha-prime-grade": "^4.0.0",
-    "eslint-plugin-compat": "^1.0.1",
     "grunt": "^1.0.0",
     "grunt-benchmark": "^1.0.0",
     "grunt-cli": "^1.0.0",
@@ -48,6 +47,7 @@
     ]
   },
   "scripts": {
+    "dev": "stmux [ \"npm run test:watch\" .. \"npm run lint:watch\" ]",
     "lint": "eslint -c ./.eslintrc.js ./lib/*.js",
     "lint:watch": "watch 'npm run lint' ./lib",
     "test": "jest ./test/.*.test.js",
