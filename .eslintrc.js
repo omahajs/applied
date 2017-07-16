@@ -1,10 +1,8 @@
-var ALLOWED_MAGIC_NUMBERS = [-1, 0, 1, 2, 180.0, 1000];
+var ALLOWED_MAGIC_NUMBERS = [-1, 0, 0.5, 1, 2, 3, 4, 180.0, 1000];
 
 module.exports = {
     env: {
-        amd: true,
-        browser: true,
-        jquery: true,
+        node: true,
         es6: true
     },
     extends: 'omaha-prime-grade',
