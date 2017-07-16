@@ -6,17 +6,17 @@
     <a href="https://www.npmjs.com/package/applied">
       <img src="https://img.shields.io/npm/v/applied.svg"/>
     </a>
-    <a href="https://travis-ci.org/omahajs/applied">
-      <img src="https://travis-ci.org/omahajs/applied.svg?branch=master"/>
+    <a href="https://travis-ci.org/jhwohlgemuth/applied">
+      <img src="https://travis-ci.org/jhwohlgemuth/applied.svg?branch=master"/>
     </a>
-    <a href="https://coveralls.io/github/omahajs/applied?branch=master">
-      <img src="https://coveralls.io/repos/github/omahajs/applied/badge.svg?branch=master"/>
+    <a href='https://coveralls.io/github/jhwohlgemuth/applied?branch=master'>
+        <img src='https://coveralls.io/repos/github/jhwohlgemuth/applied/badge.svg?branch=master' alt='Coverage Status' />
     </a>
-    <a href="https://www.bithound.io/github/omahajs/applied">
-      <img src="https://www.bithound.io/github/omahajs/applied/badges/score.svg"/>
+    <a href="https://www.bithound.io/github/jhwohlgemuth/applied">
+        <img src="https://www.bithound.io/github/jhwohlgemuth/applied/badges/score.svg" alt="bitHound Overall Score">
     </a>
-    <a href="https://snyk.io/test/github/omahajs/applied">
-      <img src="https://snyk.io/test/github/omahajs/applied/badge.svg"/>
+    <a href="https://snyk.io/test/github/jhwohlgemuth/applied">
+        <img src="https://snyk.io/test/github/jhwohlgemuth/applied/badge.svg" alt="Known Vulnerabilities" data-canonical-src="https://snyk.io/test/github/jhwohlgemuth/applied" style="max-width:100%;">
     </a>
 </p>
 </br>
@@ -54,7 +54,7 @@ Development
 **Installation:**
 
 ```bash
-git clone git@github.com/omahajs/applied.git
+git clone git@github.com/jhwohlgemuth/applied.git
 cd applied
 #Install dependencies
 npm install
