@@ -1,5 +1,5 @@
 <p align="left">
-    <a href="https://github.com/jhwohlgemuth/applied"><img width="350px" alt="applied.js" src="https://dl.dropboxusercontent.com/s/fxhrif7vjdn9iii/applied-js.png?dl=0"/></a>
+    <a href="https://github.com/jhwohlgemuth/applied"><img width="350px" alt="applied.js" src="https://raw.githubusercontent.com/jhwohlgemuth/applied/master/media/applied_with_letters.png"/></a>
 </p>
 
 > **Applied** mathematics toolkit implemented in **JS** (ECMAScript)
