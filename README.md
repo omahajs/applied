@@ -9,6 +9,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/jhwohlgemuth/applied/badge.svg?branch=master)](https://coveralls.io/github/jhwohlgemuth/applied?branch=master)
 [![bitHound Overall Score](https://www.bithound.io/github/jhwohlgemuth/applied/badges/score.svg)](https://www.bithound.io/github/jhwohlgemuth/applied)
 [![Known Vulnerabilities](https://snyk.io/test/github/jhwohlgemuth/applied/badge.svg)](https://snyk.io/test/github/jhwohlgemuth/applied)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fjhwohlgemuth%2Fapplied.svg?type=shield)](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fjhwohlgemuth%2Fapplied?ref=badge_shield)
 
 Installation
 ------------
@@ -59,3 +60,7 @@ Roadmap
 Credits
 -------
 - [Adam Shaver](https://github.com/ashaver) *thought of the name, "applied", and is a constant source of inspiration*
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fjhwohlgemuth%2Fapplied.svg?type=large)](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fjhwohlgemuth%2Fapplied?ref=badge_large)
