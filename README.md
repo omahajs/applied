@@ -59,3 +59,11 @@ Roadmap
 Credits
 -------
 - [Adam Shaver](https://github.com/ashaver) *thought of the name, "applied", and is a constant source of inspiration*
+- [Browserify](http://browserify.org/) *module bundling*
+- [Babel](https://babeljs.io/) *ES6 transpiling and minification*
+- [JSDoc](http://usejsdoc.org/) *documentation generation*
+- [minami](https://github.com/Nijikokun/minami) *documentation theme*
+
+License
+-------
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fjhwohlgemuth%2Fapplied.svg?type=large)](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fjhwohlgemuth%2Fapplied?ref=badge_large)
