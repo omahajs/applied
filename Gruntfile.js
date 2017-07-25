@@ -19,7 +19,7 @@ module.exports = function (grunt) {
                 dest: './reports/docs',
                 options: {
                     readme: 'README.md',
-                    template: 'node_modules/docdash'
+                    template: 'node_modules/minami'
                 }
             }
         },
