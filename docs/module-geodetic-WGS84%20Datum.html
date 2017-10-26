@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Atmospheric Strata - Documentation</title>
+    <title>WGS84 Datum - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Atmospheric Strata</h1>
+    <h1 class="page-title">WGS84 Datum</h1>
     
 
     
@@ -42,9 +42,9 @@
 <header>
     
         <h2>
-            <span class="ancestors"><a href="module-atmosphere.html">atmosphere</a>~</span>
+            <span class="ancestors"><a href="module-geodetic.html">geodetic</a>~</span>
         
-        Atmospheric Strata
+        WGS84 Datum
         </h2>
         
     
@@ -54,10 +54,287 @@
     <div class="container-overview">
     
         
-            <div class="description">Altitude ranges for each atmospheric strata (in km)</div>
+            <div class="description">World Geodetic System 1984 (WGS84) is an Earth-centered, Earth-fixed (ECEF) global datum</div>
         
 
         
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>EARTH_AUTHALIC_RADIUS</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>number</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Radius of a hypothetical perfect sphere that has the same surface area as the reference ellipsoid</td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>SEMI_MAJOR_AXIS</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>number</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    6378137.0
+                
+                </td>
+            
+
+            <td class="description last">a</td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>SEMI_MINOR_AXIS</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>number</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    6356752.3142
+                
+                </td>
+            
+
+            <td class="description last">a(1-f)</td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>FLATTENING</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>number</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    0.0033528106718309896
+                
+                </td>
+            
+
+            <td class="description last">f</td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>FLATTENING_INVERSE</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>number</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    298.257223563
+                
+                </td>
+            
+
+            <td class="description last">1/f</td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>FIRST_ECCENTRICITY_SQUARED</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>number</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    0.006694380004260827
+                
+                </td>
+            
+
+            <td class="description last">e^2</td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>LINEAR_ECCENTRICITY</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>number</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    521854.00842339
+                
+                </td>
+            
+
+            <td class="description last">sqrt(a^2 - b^2)</td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>AXIS_RATIO</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>number</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    0.996647189335
+                
+                </td>
+            
+
+            <td class="description last">b/a</td>
+        </tr>
+
+        
+
+    
+    </tbody>
+</table>
+
+
 
 
 <dl class="details">
@@ -89,12 +366,19 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="atmosphere.js.html">atmosphere.js</a>, <a href="atmosphere.js.html#line32">line 32</a>
+        <a href="geodetic.js.html">geodetic.js</a>, <a href="geodetic.js.html#line71">line 71</a>
     </li></ul></dd>
     
 
     
 
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://earth-info.nga.mil/GandG/publications/tr8350.2/tr8350_2.html">DoD World Geodetic System 1984</a></li>
+        </ul>
+    </dd>
     
 
     
@@ -134,7 +418,7 @@
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.3</a> on Tue Jul 25 2017 10:37:56 GMT-0500 (CDT) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.3</a> on Wed Oct 25 2017 21:04:19 GMT-0500 (CDT) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

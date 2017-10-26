@@ -6,7 +6,7 @@ module.exports = function (grunt) {
         copy: {
             cname: {
                 src: 'CNAME',
-                dest: 'reports/docs/'
+                dest: 'docs/'
             }
         },
         /**
@@ -16,7 +16,7 @@ module.exports = function (grunt) {
         jsdoc: {
             app: {
                 src: ['./lib/**/*.js'],
-                dest: './reports/docs',
+                dest: './docs',
                 options: {
                     readme: 'README.md',
                     template: 'node_modules/minami'
@@ -28,7 +28,7 @@ module.exports = function (grunt) {
          * @see {@link https://github.com/jsoverson/grunt-open}
         **/
         open: {
-            docs: { path: __dirname + '/reports/docs/index.html' }
+            docs: { path: __dirname + '/docs/index.html' }
         },
         benchmark: {
             options: { displayResults: true },
