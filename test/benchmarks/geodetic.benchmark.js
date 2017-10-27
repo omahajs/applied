@@ -1,14 +1,12 @@
-var geodetic = require('../../applied').geodetic;
-var calculate = geodetic.calculate;
-var convert = geodetic.convert;
+const {getRadius} = require('../../applied').geodetic;
 
 module.exports = {
     name: 'Geodetic',
     tests: {
         'Calculate: Earth\'s Radius': function() {
-            calculate.radius(0);
-            calculate.radius(45);
-            calculate.radius(90);
+            getRadius(0);
+            getRadius(45);
+            getRadius(90);
         }
     }
 };
