@@ -3,14 +3,17 @@
 const values   = require('lodash/values');
 const isNumber = require('lodash/isNumber');
 const isString = require('lodash/isString');
-const {calculate, convert, DATUM, FORMATS} = require('../lib/geodetic');
-
-const getRadius   = calculate.radius;
-const toDMS       = convert.toDegreesMinutesSeconds;
-const toDDM       = convert.toDegreesDecimalMinutes;
-const toDecDeg    = convert.toDecimalDegrees;
-const toCartesian = convert.geodeticToCartesian;
-const toGeodetic  = convert.cartesianToGeodetic;
+const {
+  cartesianToGeodetic,
+  geodeticToCartesian,
+  getRadius,
+  getHaversineDistance,
+  toDecimalDegrees,
+  toDegreesDecimalMinutes,
+  toDegreesMinutesSeconds,
+  DATUM,
+  FORMATS
+} = require('../lib/geodetic');
 
 const EMPTY_VALUE = 0;
 const SANDIEGO_TO_OMAHA   = 2097903.6774;
@@ -88,7 +91,7 @@ describe('Geodetic module', function() {
     it('calculate radius of the earth (WGS84 datum) at a given latitude', () => {
         expect(getRadius(0)).toEqual(DATUM.EARTH_EQUATOR_RADIUS);
         expect(getRadius(90)).toEqual(6361695.737933308);
-        var latitude = toDecDeg(NORTHERN_TROPIC_DMS);
+        var latitude = toDecimalDegrees(NORTHERN_TROPIC_DMS);
         expect(getRadius(latitude)).toEqual(6374410.938026696);
         expect(getRadius()).toEqual(DATUM.EARTH_MEAN_RADIUS);
     });
@@ -98,18 +101,18 @@ describe('Geodetic module', function() {
             [32.8303, 0, 0],
             [32, 49, 49.0800]
         ];
-        convertAndCompare(toDDM, expectedValue, testValues);
+        convertAndCompare(toDegreesDecimalMinutes, expectedValue, testValues);
         expectedValue = [-32, 49.818, 0];
         testValues = [
             [-32.8303, 0, 0],
             [-32, 49, 49.0800]
         ];
-        convertAndCompare(toDDM, expectedValue, testValues);
-        expect(toDDM([-0, 0, 49.0800])).toEqual([-0, 0.818, 0]);
-        expect(toDDM([0, 0, 49.0800])).toEqual([0, 0.818, 0]);
-        expect(toDDM([-0, 42, 0])).toEqual([-0, 42, 0]);
-        expect(toDDM([0, 42, 0])).toEqual([0, 42, 0]);
-        expect(toDDM('invalid')).toBeNull();
+        convertAndCompare(toDegreesDecimalMinutes, expectedValue, testValues);
+        expect(toDegreesDecimalMinutes([-0, 0, 49.0800])).toEqual([-0, 0.818, 0]);
+        expect(toDegreesDecimalMinutes([0, 0, 49.0800])).toEqual([0, 0.818, 0]);
+        expect(toDegreesDecimalMinutes([-0, 42, 0])).toEqual([-0, 42, 0]);
+        expect(toDegreesDecimalMinutes([0, 42, 0])).toEqual([0, 42, 0]);
+        expect(toDegreesDecimalMinutes('invalid')).toBeNull();
     });
     it('can convert to degrees / minutes / seconds', () => {
         expectedValue = [32, 49, 49.0800];
@@ -118,19 +121,19 @@ describe('Geodetic module', function() {
             [32, 49.818, 0],
             [32, 49, 49.0800]
         ];
-        convertAndCompare(toDMS, expectedValue, testValues);
+        convertAndCompare(toDegreesMinutesSeconds, expectedValue, testValues);
         expectedValue = [-32, 49, 49.0800];
         testValues = [
             [-32.8303, 0, 0],
             [-32, 49.818, 0],
             [-32, 49, 49.0800]
         ];
-        convertAndCompare(toDMS, expectedValue, testValues);
-        expect(toDMS([0, 49, 0])).toEqual([0, 49, 0]);
-        expect(toDMS([0, 0, 49.0800])).toEqual([0, 0, 49.0800]);
-        expect(toDMS([32, 0, 49.0800])).toEqual([32, 0, 49.0800]);
-        expect(toDMS(NORTHERN_TROPIC_DEG)).toEqual(NORTHERN_TROPIC_DMS);
-        expect(toDMS('invalid')).toBeNull();
+        convertAndCompare(toDegreesMinutesSeconds, expectedValue, testValues);
+        expect(toDegreesMinutesSeconds([0, 49, 0])).toEqual([0, 49, 0]);
+        expect(toDegreesMinutesSeconds([0, 0, 49.0800])).toEqual([0, 0, 49.0800]);
+        expect(toDegreesMinutesSeconds([32, 0, 49.0800])).toEqual([32, 0, 49.0800]);
+        expect(toDegreesMinutesSeconds(NORTHERN_TROPIC_DEG)).toEqual(NORTHERN_TROPIC_DMS);
+        expect(toDegreesMinutesSeconds('invalid')).toBeNull();
     });
     it('can convert to decimal-degrees', () => {
         let pairs = [
@@ -138,9 +141,9 @@ describe('Geodetic module', function() {
             [-32.8303, [-32, 49, 49.0800]],
             [NORTHERN_TROPIC_DEG, NORTHERN_TROPIC_DMS]
         ];
-        pairs.forEach((pair) => expect(toDecDeg(pair[1])).toBeCloseTo(pair[0], 9));
-        expect(toDecDeg('invalid')).toBeNull();
-        expect(toDecDeg({})).toBeNull();
+        pairs.forEach((pair) => expect(toDecimalDegrees(pair[1])).toBeCloseTo(pair[0], 9));
+        expect(toDecimalDegrees('invalid')).toBeNull();
+        expect(toDecimalDegrees({})).toBeNull();
     });
     it('can convert to and from Cartesian', () => {
         let height;
@@ -170,7 +173,7 @@ describe('Geodetic module', function() {
             }
         }
         function testGeodeticAccuracy(cartesian, height, precision = 4) {
-            let value = toGeodetic(
+            let value = cartesianToGeodetic(
                 cartesian.x,
                 cartesian.y,
                 cartesian.z
@@ -186,7 +189,7 @@ describe('Geodetic module', function() {
             }
         }
         function testCartesianAccuracy(latitude, longitude, height, precision = 4) {
-            let value = toCartesian(latitude, longitude, height);
+            let value = geodeticToCartesian(latitude, longitude, height);
             let cartesian = cartesiansFromCesium[height];
             expect(value[0]).toBeCloseTo(cartesian.x, precision);
             expect(value[1]).toBeCloseTo(cartesian.y, precision);
@@ -205,10 +208,9 @@ describe('Geodetic module', function() {
         testGeodeticAccuracy(cartesiansFromCesium[height], height);
     });
     it('can calculate distance with Haversine formula', () => {
-        const getDistance = calculate.distance;
         const a = [omahaLat[0], omahaLon[0]];
         const b = [sanDiegoLat[0], sanDiegoLon[0]];
-        expect(getDistance(a, b)).toBeCloseTo(SANDIEGO_TO_OMAHA, 4);
-        expect(getDistance(b, a)).toBeCloseTo(SANDIEGO_TO_OMAHA, 4);
+        expect(getHaversineDistance(a, b)).toBeCloseTo(SANDIEGO_TO_OMAHA, 4);
+        expect(getHaversineDistance(b, a)).toBeCloseTo(SANDIEGO_TO_OMAHA, 4);
     });
 });
