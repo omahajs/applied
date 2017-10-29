@@ -39,12 +39,14 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
+            <pre class="prettyprint source linenums"><code>// @flow
+type point2 = [number, number];
+type point3 = [number, number, number];
+/**
  * @file Geodesic, cartographic, and geographic
  * @author Jason Wohlgemuth
  * @module geodetic
 **/
-'use strict';
 
 const flatten  = require('lodash/flatten');
 const curry    = require('lodash/curry');
@@ -62,13 +64,13 @@ const SECONDS_PER_MINUTE = 60;
 const SECONDS_PER_DEGREE = MINUTES_PER_DEGREE * SECONDS_PER_MINUTE;
 const GEOSPATIAL_VALUE_LENGTH = 3;
 
-function frac(float) {
+function frac(float: number): any {
     float = abs(float);
     let digits = (float !== trunc(float)) ? String(float).split('.')[1].length : 0;
     return (float - trunc(float)).toFixed(digits);
 }
 function clone(obj) {return JSON.parse(JSON.stringify(obj));}
-function squared(n) {return n * n;}
+function squared(n: number): number {return n * n;}
 function getArguments() {return Array.prototype.slice.apply(arguments);}
 function padArrayWithZeroes(n, arr) {return arr.concat(times(n - arr.length, constant(0)));}
 function onlyAllowNumbers(arr) {return arr.every(isNumber) ? arr : [];}
@@ -146,8 +148,8 @@ module.exports = {
  * @param {number} theta Geographic latitude
  * @returns {number} Geocentric latitude
 **/
-function getGeocentricLatitude(theta) {
-    let coefficient = squared(1 - DATUM.FLATTENING);
+function getGeocentricLatitude(theta: number): number {
+    const coefficient = squared(1 - DATUM.FLATTENING);
     return coefficient * tan(rad(theta));
 }
 /**
@@ -171,12 +173,12 @@ function getGeocentricLatitude(theta) {
  * console.log(r);// 6371001
  *
 **/
-function getRadius(theta) {
+function getRadius(theta: number): number {
     let radius;
     if (isNil(theta)) {
         radius = DATUM.EARTH_MEAN_RADIUS;
     } else {
-        let SIN_THETA = sin(getGeocentricLatitude(theta));
+        const SIN_THETA = sin(getGeocentricLatitude(theta));
         radius = DATUM.SEMI_MAJOR_AXIS * (1 - (DATUM.FLATTENING * squared(SIN_THETA)));
     }
     return radius;
@@ -193,15 +195,15 @@ function getRadius(theta) {
  * let distance = getHaversineDistance(a, b);
  * console.log(distance);// about 2098 km
 **/
-function getHaversineDistance(pointA, pointB) {
-    let a = pointA.map(rad);
-    let b = pointB.map(rad);
-    let Δ = [
+function getHaversineDistance(pointA: point2, pointB: point2): number {
+    const a = pointA.map(rad);
+    const b = pointB.map(rad);
+    const Δ = [
         b[0] - a[0], // latitude
         b[1] - a[1] // longitude
     ];
     const R = DATUM.EARTH_AUTHALIC_RADIUS;
-    let inner = hav(Δ[0]) + (cos(a[0]) * cos(b[0]) * hav(Δ[1]));
+    const inner = hav(Δ[0]) + (cos(a[0]) * cos(b[0]) * hav(Δ[1]));
     return 2 * R * asin(sqrt(inner));
 }
 /**
@@ -211,20 +213,20 @@ function getHaversineDistance(pointA, pointB) {
  * @property {number[]} point [latitude, longitude, height] (in degrees)
  * @returns {number[]} [x, y, z]
 **/
-function geodeticToCartesian(point) {
-    let [latitude, longitude, height] = point;
-    let h = height ? height : 0;
-    let lat = rad(latitude);
-    let lon = rad(longitude);
+function geodeticToCartesian(point: point3): point3 {
+    const [latitude, longitude, height] = point;
+    const h = height ? height : 0;
+    const lat = rad(latitude);
+    const lon = rad(longitude);
     const COS_LON = cos(lon);
     const COS_LAT = cos(lat);
     const SIN_LON = sin(lon);
     const SIN_LAT = sin(lat);
     const SIN_LAT_SQUARED = SIN_LAT * SIN_LAT;
     const N = DATUM.SEMI_MAJOR_AXIS / sqrt(1 - DATUM.FIRST_ECCENTRICITY_SQUARED * SIN_LAT_SQUARED);
-    let x = (N + h) * COS_LAT * COS_LON;
-    let y = (N + h) * COS_LAT * SIN_LON;
-    let z = ((1 - DATUM.FIRST_ECCENTRICITY_SQUARED) * N + h) * SIN_LAT;
+    const x = (N + h) * COS_LAT * COS_LON;
+    const y = (N + h) * COS_LAT * SIN_LON;
+    const z = ((1 - DATUM.FIRST_ECCENTRICITY_SQUARED) * N + h) * SIN_LAT;
     return [x, y, z];
 }
 /**
@@ -235,8 +237,8 @@ function geodeticToCartesian(point) {
  * @returns {number[]} [latitude, longitude, height] (in degrees)
  * @see [Cartesian to Geodetic Coordinates without Iterations]{@link http://dx.doi.org/10.1061/(ASCE)0733-9453(2000)126:1(1)}
 **/
-function cartesianToGeodetic(point) {
-    let [x, y, z] = point;
+function cartesianToGeodetic(point: point3): point3 {
+    const [x, y, z] = point;
     const a = DATUM.SEMI_MAJOR_AXIS;
     const b = DATUM.SEMI_MINOR_AXIS;
     const E = DATUM.LINEAR_ECCENTRICITY;
@@ -255,9 +257,9 @@ function cartesianToGeodetic(point) {
     const REDUCED_LATITUDE = atan(TAN_REDUCED_LATITUDE);
     const COS_REDUCED_LATITUDE = cos(REDUCED_LATITUDE);
     const SIN_REDUCED_LATITUDE = sin(REDUCED_LATITUDE);
-    let latitude = atan((a / b) * TAN_REDUCED_LATITUDE);
-    let longitude = atan2(y, x);
-    let height = sqrt(
+    const latitude = atan((a / b) * TAN_REDUCED_LATITUDE);
+    const longitude = atan2(y, x);
+    const height = sqrt(
         squared(z - b * SIN_REDUCED_LATITUDE) + squared(Q - a * COS_REDUCED_LATITUDE)
     );
     return [deg(latitude), deg(longitude), Number(height.toFixed(1))];
@@ -278,13 +280,13 @@ function cartesianToGeodetic(point) {
  * let dms = toDegreesMinutesSeconds(val);
  * console.log(dms);// [32, 49, 49.0800]
 **/
-function toDegreesMinutesSeconds(value) {
+function toDegreesMinutesSeconds(value: point3): ?number[] {
     if (value.length !== GEOSPATIAL_VALUE_LENGTH) {
         return null;
     }
-    let data = value;
-    let dimension = data.length - data.slice(0).reverse().findIndex(function(val) {return abs(val) > 0;});
-    let degrees = trunc(value[0]);
+    const data = value;
+    const dimension = data.length - data.slice(0).reverse().findIndex(function(val) {return abs(val) > 0;});
+    const degrees = trunc(value[0]);
     let minutes = 0;
     let seconds = 0;
     /* istanbul ignore else */
@@ -320,7 +322,7 @@ function toDegreesMinutesSeconds(value) {
  * let ddm = toDegreesDecimalMinutes(val);
  * console.log(ddm);// [32, 49.818]
 **/
-function toDegreesDecimalMinutes(value) {
+function toDegreesDecimalMinutes(value: point3): ?number[] {
     if (value.length !== GEOSPATIAL_VALUE_LENGTH) {
         return null;
     }
@@ -352,9 +354,9 @@ function toDegreesDecimalMinutes(value) {
  * let dd = toDecimalDegrees(val);
  * console.log(dd);// 32.8303
 **/
-function toDecimalDegrees(value) {
+function toDecimalDegrees(value: number[]): ?number {
     let data = value;
-    let sign = Math.sign(data[0]);
+    const sign = Math.sign(data[0]);
     data = data.map(Number).map(abs);
     data = sign * (data[0] + (data[1] / MINUTES_PER_DEGREE) + (data[2] / SECONDS_PER_DEGREE));
     return !isNaN(data) ? data : null;
@@ -371,7 +373,7 @@ function toDecimalDegrees(value) {
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.3</a> on Thu Oct 26 2017 19:09:26 GMT-0500 (CDT) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.3</a> on Sat Oct 28 2017 21:27:59 GMT-0500 (CDT) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
