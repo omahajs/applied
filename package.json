@@ -28,7 +28,7 @@
     "deamdify": "^0.3.0",
     "docdash": "^0.4.0",
     "eslint": "^4.2.0",
-    "eslint-config-omaha-prime-grade": "^4.0.0",
+    "eslint-config-omaha-prime-grade": "^5.0.1",
     "eslint-plugin-compat": "^2.0.1",
     "flow-bin": "^0.57.3",
     "grunt": "^1.0.0",
