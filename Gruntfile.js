@@ -24,13 +24,6 @@ module.exports = function (grunt) {
                 }
             }
         },
-        /**
-         * Open files in browsers for review
-         * @see {@link https://github.com/jsoverson/grunt-open}
-        **/
-        open: {
-            docs: { path: __dirname + '/docs/index.html' }
-        },
         benchmark: {
             options: { displayResults: true },
             all: {
