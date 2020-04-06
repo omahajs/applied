@@ -39,7 +39,7 @@
     "jest": "^23.6.0",
     "jest-flow-transform": "^1.0.1",
     "jsdoc-babel": "^0.5.0",
-    "load-grunt-tasks": "^3.1.0",
+    "load-grunt-tasks": "^5.1.0",
     "minami": "^1.2.3",
     "opn-cli": "^3.1.0",
     "time-grunt": "^1.1.0",
