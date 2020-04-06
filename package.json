@@ -23,7 +23,7 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-minify": "^0.5.0",
-    "browserify": "^14.3.0",
+    "browserify": "^16.5.1",
     "coveralls": "^2.13.1",
     "deamdify": "^0.3.0",
     "docdash": "^1.0.0",
