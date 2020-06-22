@@ -27,7 +27,7 @@
     "coveralls": "^2.13.1",
     "deamdify": "^0.3.0",
     "docdash": "^1.0.0",
-    "eslint": "^5.8.0",
+    "eslint": "^7.3.0",
     "eslint-config-omaha-prime-grade": "^10.0.0",
     "eslint-plugin-compat": "^2.0.1",
     "flow-bin": "^0.122.0",
