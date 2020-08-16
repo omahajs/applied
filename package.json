@@ -15,7 +15,7 @@
     "node": "*"
   },
   "dependencies": {
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.20"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
